@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"jinycoo.com/jinygo/tools/jiny/pkg/commands"
+	"jinycoo.com/jinygo/tools/jiny/commands"
 
 	"github.com/spf13/cobra"
 )
