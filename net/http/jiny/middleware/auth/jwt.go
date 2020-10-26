@@ -10,9 +10,13 @@ package auth
 import (
 	"time"
 
-	"jinycoo.com/jinygo/net/http/jiny"
+	"github.com/dgrijalva/jwt-go"
+
 	"jinycoo.com/jinygo/errors"
+	"jinycoo.com/jinygo/net/http/jiny"
 )
+
+const UCKey = "UkID"
 
 var SigningKey = "api.jinycoo.com"
 
@@ -44,16 +48,17 @@ func BuildAccToken(acc *AccInfo) (string, error) {
 	if acc == nil {
 		acc = new(AccInfo)
 	}
-	if acc.ExpiresAt == 0 || acc.ExpiresAt < time.Now().Unix() {
-		acc.ExpiresAt = time.Now().Add(1 * time.Hour).Unix()
+	exp := int64(time.Duration(acc.Expiry))
+	if acc.LoginAt == 0 || acc.LoginAt+exp < time.Now().Unix() {
+		acc.LoginAt = time.Now().Unix()
 	}
 	claims := Claims{
 		MID:      acc.MID,
 		Username: acc.Username,
 		Avatar:   acc.Avatar,
-		LoginAt:  time.Now().Unix(),
+		LoginAt:  acc.LoginAt,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: acc.ExpiresAt,
+			ExpiresAt: acc.LoginAt + exp,
 			Issuer:    acc.Issuer,
 		},
 	}
@@ -62,7 +67,7 @@ func BuildAccToken(acc *AccInfo) (string, error) {
 
 func (j *JWT) Gen(claims Claims) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
-	token.Header["kid"] = SigningKey
+	token.Header["kid"] = j.SigningKey
 	return token.SignedString(j.SigningKey)
 }
 
@@ -120,6 +125,6 @@ func JwtAuth() jiny.HandlerFn {
 			c.Abort()
 			return
 		}
-		c.Set("adminID", claims.MID)
+		c.Set(UCKey, claims.MID)
 	}
 }

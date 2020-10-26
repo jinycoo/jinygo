@@ -8,7 +8,7 @@ package en
  * @desc       .....
  * ---------------------------------------------- */
 
-var EN = map[int]string {
+var EN = map[int]string{
 	0:    "ok",
 	-1:   "AppKeyInvalid",           // 应用程序不存在或已被封禁
 	-2:   "AccessKeyErr",            // Access Key错误
@@ -31,19 +31,19 @@ var EN = map[int]string {
 	-114: "UserIDCheckInvalidPhone", // 请先绑定手机
 	-115: "UserIDCheckInvalidCard",  // 请先完成实名认证
 
-	-304: "NotModified",           // 木有改动
-	-307: "TemporaryRedirect",     // 撞车跳转
-	-400: "RequestErr",            // 请求错误
-	-401: "Unauthorized",          // 未认证
-	-403: "AccessDenied",          // 访问权限不足
-	-404: "NothingFound",          // 啥都木有
-	-405: "MethodNotAllowed",      // 不支持该方法
-	-409: "Conflict",              // 冲突
+	-304: "NotModified",       // 木有改动
+	-307: "TemporaryRedirect", // 撞车跳转
+	-400: "RequestErr",        // 请求错误
+	-401: "Unauthorized",      // 未认证
+	-403: "AccessDenied",      // 访问权限不足
+	-404: "NothingFound",      // 啥都木有
+	-405: "MethodNotAllowed",  // 不支持该方法
+	-409: "Conflict",          // 冲突
 
-	-500: "ServerErr",             // 服务器错误
-	-503: "ServiceUnavailable",    // 过载保护,服务暂不可用
-	-504: "Deadline",              // 服务调用超时
-	-509: "LimitExceed",           // 超出限制
+	-500: "ServerErr",          // 服务器错误
+	-503: "ServiceUnavailable", // 过载保护,服务暂不可用
+	-504: "Deadline",           // 服务调用超时
+	-509: "LimitExceed",        // 超出限制
 
 	-616: "FileNotExists",         // 上传文件不存在
 	-617: "FileTooLarge",          // 上传文件太大
@@ -62,6 +62,9 @@ var EN = map[int]string {
 	-688: "AreaLimit",             // 地理区域限制
 	-689: "CopyrightLimit",        // 版权限制
 
+	-870: "DataSourceConfigErr",
+	-871: "DataSourceConfigFieldNotFound",
+
 	-1000: "LinkErr",      // 网络连接错误
 	-1200: "Degrade",      // 被降级过滤的请求
 	-1201: "RPCNoClient",  // rpc服务的client都不可用
@@ -70,5 +73,6 @@ var EN = map[int]string {
 	-2201: "RPCNoServer",  // rpc服务的server端不可用
 	-2202: "RPCServeErr",  // rpc服务的server端错误
 
+	7000: "TemplateInitErr",    // 模板初始化错误
+	7001: "TemplateSettingErr", // 模板设置错误
 }
-

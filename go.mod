@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/cespare/xxhash/v2 v2.1.1
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
 	github.com/gin-contrib/sse v0.1.0
 	github.com/go-playground/universal-translator v0.17.0 // indirect

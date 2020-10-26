@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"jinycoo.com/jinygo/tools/jiny/commands"
-
 	"github.com/spf13/cobra"
+
+	"jinycoo.com/jinygo/tools/jiny/commands"
 )
 
 func main() {

@@ -1,9 +1,11 @@
 package auth
 
+import "jinycoo.com/jinygo/ctime"
+
 const (
 	ReqAuthKey = "Authorization"
 	ResAuthKey = "WWW-Authorization"
-	Account = "account"
+	Account    = "account"
 )
 
 type AccInfo struct {
@@ -11,8 +13,9 @@ type AccInfo struct {
 	Username string
 	Password string
 	Avatar   string
-	ExpiresAt int64
-	Issuer    string
+	LoginAt  int64
+	Expiry   ctime.Duration
+	Issuer   string
 }
 
 type Accounts map[string]string
