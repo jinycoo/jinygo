@@ -1,9 +1,9 @@
 /**------------------------------------------------------------**
- * @file     go.fofa.so/cache.go
+ * @file     jinycoo.com/cache.go
  * @version  1.0.0
  * @author   jinycoo - caojingyin@baimaohui.net
  * @date     2020/8/12 9:48
- * @desc     go.fofa.so - main - summary
+ * @desc     jinycoo.com - main - summary
  **------------------------------------------------------------**/
 
 package cache

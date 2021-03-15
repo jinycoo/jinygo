@@ -1,9 +1,9 @@
 /**------------------------------------------------------------**
- * @file     go.fofa.so/color.go
+ * @file     jinycoo.com/color.go
  * @version  1.0.0
  * @author   jinycoo - caojingyin@baimaohui.net
  * @date     2020/8/7 10:23
- * @desc     go.fofa.so - main - summary
+ * @desc     jinycoo.com - main - summary
  **------------------------------------------------------------**/
 
 package color
