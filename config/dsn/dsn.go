@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"strings"
 
-	"gopkg.in/go-playground/validator.v9"
+	"jinycoo.com/jinygo/validator"
 )
 
 var _validator *validator.Validate
