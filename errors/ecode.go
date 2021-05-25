@@ -12,7 +12,7 @@ import (
 
 /** --------------------------------------------- *
  * @filename   errors/ecode.go
- * @author     jinycoo <caojingyin@jiandan100.cn>
+ * @author     jinycoo <caojingyin@jinycoo.com>
  * @datetime   2019-05-16 15:51
  * @version    1.0.0
  * @desc       公共错误代号及简述

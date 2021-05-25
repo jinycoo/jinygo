@@ -2,28 +2,28 @@ package config
 
 /** --------------------------------------------- *
  * @filename   config/
- * @author     jinycoo <caojingyin@jiandan100.cn>
+ * @author     jinycoo <caojingyin@jinycoo.com>
  * @datetime   2019-05-20 15:22
  * @version    1.0.0
  * @desc       .....
  * ---------------------------------------------- */
-
 
 import (
 	"bytes"
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"path"
 	"strings"
 	"time"
 
+	"jinycoo.com/jinygo/errors"
 	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/utils/json"
-	"jinycoo.com/jinygo/errors"
 )
 
 const (
@@ -123,13 +123,13 @@ func (c *Client) updateproc2() (err error) {
 	for {
 		time.Sleep(_retryInterval)
 		if ver, err = c.checkVersion2(c.diff); err != nil {
-			log.Error(fmt.Sprintf("c.checkVersion(%d) error(%v)", c.ver, err))
+			log.ZError(fmt.Sprintf("c.checkVersion(%d) error(%v)", c.ver, err))
 			continue
 		} else if ver.Version == c.diff.Version {
 			continue
 		}
 		if err = c.download2(ver, false); err != nil {
-			log.Error(fmt.Sprintf("c.download() error(%s)", err))
+			log.ZError(fmt.Sprintf("c.download() error(%s)", err))
 			continue
 		}
 	}
@@ -165,7 +165,7 @@ func (c *Client) download2(ver *ver, isFirst bool) (err error) {
 		}
 	}
 	for _, v := range tmp {
-		if err = ioutil.WriteFile(path.Join(conf.Path, v.Name), []byte(v.Config), 0644); err != nil {
+		if err = os.WriteFile(path.Join(conf.Path, v.Name), []byte(v.Config), 0644); err != nil {
 			return
 		}
 		confs[v.Name] = v
@@ -223,7 +223,7 @@ func (c *Client) checkVersion2(reqVer *ver) (ver *ver, err error) {
 		return
 	}
 	// ok
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	v := &version1{}
@@ -271,7 +271,7 @@ func (c *Client) getConfig2(ver *ver) (data *data, err error) {
 		err = fmt.Errorf("getConfig() http error url(%s) status: %d", url, resp.StatusCode)
 		return
 	}
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	if err = json.Unmarshal(rb, res); err != nil {
@@ -336,7 +336,7 @@ func (c *Client) Create(name, content, operator, mark string) (err error) {
 		err = fmt.Errorf("Create() http error url(%s) status: %d", fmt.Sprintf(_apiCreate, conf.Addr), resp.StatusCode)
 		return
 	}
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	if err = json.Unmarshal(rb, res); err != nil {
@@ -371,7 +371,7 @@ func (c *Client) Update(ID int64, content, operator, mark string) (err error) {
 		err = fmt.Errorf("Update() http error url(%s) status: %d", fmt.Sprintf(_apiUpdate, conf.Addr), resp.StatusCode)
 		return
 	}
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	if err = json.Unmarshal(rb, res); err != nil {
@@ -408,7 +408,7 @@ func (c *Client) ConfIng(name string) (v *Value, err error) {
 		err = fmt.Errorf("ConfIng() http error url(%s) status: %d", _apiCreate, resp.StatusCode)
 		return
 	}
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	if err = json.Unmarshal(rb, res); err != nil {
@@ -442,5 +442,3 @@ func (c *Client) Configs() (confs []*Value, ok bool) {
 func service() string {
 	return fmt.Sprintf("%s_%s_%s", conf.TreeID, conf.DeployEnv, conf.Zone)
 }
-
-

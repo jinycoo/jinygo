@@ -1,13 +1,32 @@
-/**------------------------------------------------------------**
- * @filename buffer/buffer.go
- * @author   jinycoo
- * @version  1.0.0
- * @date     2019-07-15 10:15
- * @desc     buffer - buffer
- **------------------------------------------------------------**/
-package buffer
+// Copyright (c) 2016 Uber Technologies, Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
-import "strconv"
+// Package buffer provides a thin wrapper around a byte slice. Unlike the
+// standard library's bytes.Buffer, it supports a portion of the strconv
+// package's zero-allocation formatters.
+package buffer // import "jinycoo.com/jinygo/log/buffer"
+
+import (
+	"strconv"
+	"time"
+)
 
 const _size = 1024 // by default, create 1 KiB buffers
 
@@ -31,6 +50,11 @@ func (b *Buffer) AppendString(s string) {
 // AppendInt appends an integer to the underlying buffer (assuming base 10).
 func (b *Buffer) AppendInt(i int64) {
 	b.bs = strconv.AppendInt(b.bs, i, 10)
+}
+
+// AppendTime appends the time formatted using the specified layout.
+func (b *Buffer) AppendTime(t time.Time, layout string) {
+	b.bs = t.AppendFormat(b.bs, layout)
 }
 
 // AppendUint appends an unsigned integer to the underlying buffer (assuming

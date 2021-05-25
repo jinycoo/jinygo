@@ -2,7 +2,7 @@ package errors
 
 /** --------------------------------------------- *
  * @filename   errors/errno.go
- * @author     jinycoo <caojingyin@jiandan100.cn>
+ * @author     jinycoo <caojingyin@jinycoo.com>
  * @datetime   2019-05-16 15:50
  * @version    1.0.0
  * @desc       公共错误代码 0除外  0具有更多项

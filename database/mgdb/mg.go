@@ -1,6 +1,6 @@
 /**------------------------------------------------------------**
  * @filename mgdb/mg.go
- * @author   jinycoo - caojingyin@jiandan100.cn
+ * @author   jinycoo - caojingyin@jinycoo.com
  * @version  1.0.0
  * @date     2019/11/13 14:46
  * @desc     mgdb - mongodb conn
@@ -11,13 +11,12 @@ import (
 	"context"
 	"time"
 
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 
 	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/net/trace"
-
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 const (

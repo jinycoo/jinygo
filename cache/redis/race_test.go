@@ -2,6 +2,7 @@ package redis_test
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"net"
 	"strconv"
@@ -266,7 +267,7 @@ var _ = Describe("races", func() {
 
 		wg := performAsync(C, func(id int) {
 			for {
-				v, err := client.BLPop(ctx, 3*time.Second, "list").Result()
+				v, err := client.BLPop(ctx, 5*time.Second, "list").Result()
 				if err != nil {
 					if err == redis.Nil {
 						break
@@ -294,6 +295,26 @@ var _ = Describe("races", func() {
 			err := client.WithContext(ctx).Ping(ctx).Err()
 			Expect(err).NotTo(HaveOccurred())
 		})
+	})
+
+	It("should abort on context timeout", func() {
+		opt := redisClusterOptions()
+		client := cluster.newClusterClient(ctx, opt)
+
+		ctx, cancel := context.WithCancel(context.Background())
+
+		wg := performAsync(C, func(_ int) {
+			_, err := client.XRead(ctx, &redis.XReadArgs{
+				Streams: []string{"test", "$"},
+				Block:   1 * time.Second,
+			}).Result()
+			Expect(err).To(HaveOccurred())
+			Expect(err.Error()).To(Or(Equal(context.Canceled.Error()), ContainSubstring("operation was canceled")))
+		})
+
+		time.Sleep(10 * time.Millisecond)
+		cancel()
+		wg.Wait()
 	})
 })
 

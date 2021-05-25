@@ -27,12 +27,12 @@ import (
 
 	"jinycoo.com/jinygo/config/env"
 	"jinycoo.com/jinygo/ctime"
+	"jinycoo.com/jinygo/errors"
 	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/net/metadata"
 	"jinycoo.com/jinygo/net/netutil/breaker"
 	"jinycoo.com/jinygo/stat"
 	"jinycoo.com/jinygo/utils/json"
-	"jinycoo.com/jinygo/errors"
 
 	"github.com/gogo/protobuf/proto"
 )
@@ -163,7 +163,6 @@ func (client *Client) SetConfig(c *ClientConfig) {
 }
 
 // NewRequest new http request with method, uri, ip, values and headers.
-// TODO(zhoujiahui): param realIP should be removed later.
 func (client *Client) NewRequest(method, uri, realIP string, params url.Values) (req *http.Request, err error) {
 	enc, err := client.sign(params)
 	if err != nil {

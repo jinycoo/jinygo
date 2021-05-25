@@ -1,7 +1,3 @@
-// Copyright 2014 Manu Martinez-Almeida.  All rights reserved.
-// Use of this source code is governed by a MIT style
-// license that can be found in the LICENSE file.
-
 package binding
 
 import "net/http"
@@ -16,6 +12,7 @@ const (
 	MIMEPOSTForm          = "application/x-www-form-urlencoded"
 	MIMEMultipartPOSTForm = "multipart/form-data"
 	MIMEPROTOBUF          = "application/x-protobuf"
+	MIMEMSGPACK           = "application/x-msgpack"
 	MIMEMSGPACK2          = "application/msgpack"
 	MIMEYAML              = "application/x-yaml"
 )
@@ -45,7 +42,6 @@ type BindingUri interface {
 // StructValidator is the minimal interface which needs to be implemented in
 // order for it to be used as the validator engine for ensuring the correctness
 // of the request. Gin provides a default implementation for this using
-// https://github.com/go-playground/validator/tree/v8.18.2.
 type StructValidator interface {
 	// ValidateStruct can receive any kind of type and it should never panic, even if the configuration is not right.
 	// If the received type is not a struct, any validation should be skipped and nil must be returned.
@@ -59,9 +55,7 @@ type StructValidator interface {
 	Engine() interface{}
 }
 
-// Validator is the default validator which implements the StructValidator
-// interface. It uses https://github.com/go-playground/validator/tree/v8.18.2
-// under the hood.
+// Validator is the default validator which implements the StructValidator interface.
 var Validator StructValidator = &defaultValidator{}
 
 // These implement the Binding interface and can be used to bind the data
@@ -74,6 +68,7 @@ var (
 	FormPost      = formPostBinding{}
 	FormMultipart = formMultipartBinding{}
 	ProtoBuf      = protobufBinding{}
+	MsgPack       = msgpackBinding{}
 	YAML          = yamlBinding{}
 	Uri           = uriBinding{}
 	Header        = headerBinding{}
@@ -82,7 +77,7 @@ var (
 // Default returns the appropriate Binding instance based on the HTTP method
 // and the content type.
 func Default(method, contentType string) Binding {
-	if method == "GET" {
+	if method == http.MethodGet {
 		return Form
 	}
 
@@ -93,6 +88,8 @@ func Default(method, contentType string) Binding {
 		return XML
 	case MIMEPROTOBUF:
 		return ProtoBuf
+	case MIMEMSGPACK, MIMEMSGPACK2:
+		return MsgPack
 	case MIMEYAML:
 		return YAML
 	case MIMEMultipartPOSTForm:

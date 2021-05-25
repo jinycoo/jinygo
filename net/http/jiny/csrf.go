@@ -13,20 +13,10 @@ import (
 	"regexp"
 	"strings"
 
-	"jinycoo.com/jinygo/log"
+	"jinycoo.com/jinygo/net/http/jiny/server"
 )
 
-var (
-	_allowHosts = []string{
-		".jianjiaolian.com",
-		".jinycoo.com",
-	}
-	_allowPatterns = []string{
-		`^http(?:s)?://([\w\d]+\.)?servicewechat.com/(wx7564fd5313d24844|wx618ca8c24bf06c33)`,
-	}
-
-	validations = []func(*url.URL) bool{}
-)
+var validations = []func(*url.URL) bool{}
 
 func matchHostSuffix(suffix string) func(*url.URL) bool {
 	return func(uri *url.URL) bool {
@@ -50,41 +40,39 @@ func addPattern(pattern string) {
 	validations = append(validations, matchPattern(regexp.MustCompile(pattern)))
 }
 
-func init() {
-	for _, r := range _allowHosts {
-		addHostSuffix(r)
-	}
-	for _, p := range _allowPatterns {
-		addPattern(p)
-	}
-}
-
-func CSRF() HandlerFn {
-	return func(c *Context) {
-		referer := c.Request.Header.Get("Referer")
-		params := c.Request.Form
-		cross := (params.Get("callback") != "" && params.Get("jsonp") == "jsonp") || (params.Get("cross_domain") != "")
-		if referer == "" {
-			if !cross {
+func CSRF() server.HandlerFn {
+	return func(c *server.Context) {
+		referer := c.GetHeader("Referer")
+		u, _ := url.Parse(c.Request.RequestURI)
+		for _, p := range conf.AllowPatterns {
+			if p == u.Path && len(referer) == 0 {
+				c.AbortWithStatus(http.StatusForbidden)
 				return
 			}
-			log.Info("The request's Referer header is empty.")
-			c.AbortWithStatus(http.StatusForbidden)
-			return
 		}
-		illegal := true
-		if uri, err := url.Parse(referer); err == nil && uri.Host != "" {
-			for _, validate := range validations {
-				if validate(uri) {
-					illegal = false
-					break
-				}
-			}
-		}
-		if illegal {
-			log.Infof("The request's Referer header `%s` does not match any of allowed referers.", referer)
-			c.AbortWithStatus(http.StatusForbidden)
-			return
-		}
+		//params := c.Request.Form
+		//cross := (params.Get("callback") != "" && params.Get("jsonp") == "jsonp") || (params.Get("cross_domain") != "")
+		//if len(referer) == 0 {
+		//	//if !cross {
+		//	//	return
+		//	//}
+		//	log.Info("The request's Referer header is empty.")
+		//	c.AbortWithStatus(http.StatusForbidden)
+		//	return
+		//}
+		//illegal := true
+		//if uri, err := url.Parse(referer); err == nil && uri.Host != "" {
+		//	for _, validate := range validations {
+		//		if validate(uri) {
+		//			illegal = false
+		//			break
+		//		}
+		//	}
+		//}
+		//if illegal {
+		//	log.Infof("The request's Referer header `%s` does not match any of allowed referers.", referer)
+		//	c.AbortWithStatus(http.StatusForbidden)
+		//	return
+		//}
 	}
 }

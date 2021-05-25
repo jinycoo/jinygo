@@ -2,7 +2,7 @@ package config
 
 /** --------------------------------------------- *
  * @filename   config/client.go
- * @author     jinycoo <caojingyin@jiandan100.cn>
+ * @author     jinycoo <caojingyin@jinycoo.com>
  * @datetime   2019-05-17 14:50
  * @version    1.0.0
  * @desc       配置端服务
@@ -14,7 +14,7 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net"
 	"net/http"
 	"net/url"
@@ -306,7 +306,7 @@ func (c *Client) checkVersion(reqVer int64) (ver int64, err error) {
 		return
 	}
 	// ok
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	v := &version{}
@@ -354,7 +354,7 @@ func (c *Client) getConfig(ver int64) (data *data, err error) {
 		err = fmt.Errorf("getConfig() http error url(%s) status: %d", url, resp.StatusCode)
 		return
 	}
-	if rb, err = ioutil.ReadAll(resp.Body); err != nil {
+	if rb, err = io.ReadAll(resp.Body); err != nil {
 		return
 	}
 	if err = json.Unmarshal(rb, res); err != nil {
@@ -398,7 +398,7 @@ func (c *Client) update(d *data) (err error) {
 				buf.WriteString(v)
 				buf.WriteString("\n")
 			}
-			if err = ioutil.WriteFile(path.Join(conf.Path, k), []byte(v), 0644); err != nil {
+			if err = os.WriteFile(path.Join(conf.Path, k), []byte(v), 0644); err != nil {
 				return
 			}
 		}
@@ -448,5 +448,3 @@ func localIP() string {
 	}
 	return ""
 }
-
-

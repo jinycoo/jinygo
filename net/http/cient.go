@@ -1,6 +1,6 @@
 /**------------------------------------------------------------**
  * @filename http/xxx.go
- * @author   jinycoo - caojingyin@jiandan100.cn
+ * @author   jinycoo - caojingyin@jinycoo.com
  * @version  1.0.0
  * @date     2019/10/24 11:03
  * @desc     dean - http - summary

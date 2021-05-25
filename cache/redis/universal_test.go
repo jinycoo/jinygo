@@ -3,7 +3,6 @@ package redis_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-
 	"jinycoo.com/jinygo/cache/redis"
 )
 
@@ -19,7 +18,7 @@ var _ = Describe("UniversalClient", func() {
 	It("should connect to failover servers", func() {
 		client = redis.NewUniversalClient(&redis.UniversalOptions{
 			MasterName: sentinelName,
-			Addrs:      []string{":" + sentinelPort},
+			Addrs:      sentinelAddrs,
 		})
 		Expect(client.Ping(ctx).Err()).NotTo(HaveOccurred())
 	})

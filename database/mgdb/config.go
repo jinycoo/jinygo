@@ -1,6 +1,6 @@
 /**------------------------------------------------------------**
  * @filename mgdb/config.go
- * @author   jinycoo - caojingyin@jiandan100.cn
+ * @author   jinycoo - caojingyin@jinycoo.com
  * @version  1.0.0
  * @date     2019/11/13 14:47
  * @desc     mgdb - mongodb config

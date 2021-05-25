@@ -1,6 +1,6 @@
 /**------------------------------------------------------------**
  * @filename prom/xxx.go
- * @author   jinycoo - caojingyin@jiandan100.cn
+ * @author   jinycoo - caojingyin@jinycoo.com
  * @version  1.0.0
  * @date     2019/12/31 18:01
  * @desc     prom - summary

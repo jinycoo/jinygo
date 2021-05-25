@@ -6,6 +6,7 @@ import (
 	"net"
 	"strings"
 
+	"jinycoo.com/jinygo/cache/redis/internal"
 	"jinycoo.com/jinygo/cache/redis/internal/hashtag"
 	"jinycoo.com/jinygo/cache/redis/internal/pool"
 )
@@ -19,6 +20,7 @@ func (c *PubSub) SetNetConn(netConn net.Conn) {
 }
 
 func (c *ClusterClient) LoadState(ctx context.Context) (*clusterState, error) {
+	// return c.state.Reload(ctx)
 	return c.loadState(ctx)
 }
 
@@ -80,4 +82,14 @@ func (state *clusterState) IsConsistent(ctx context.Context) bool {
 	}
 
 	return true
+}
+
+func GetSlavesAddrByName(ctx context.Context, c *SentinelClient, name string) []string {
+	addrs, err := c.Slaves(ctx, name).Result()
+	if err != nil {
+		internal.Logger.Printf(ctx, "sentinel: Slaves name=%q failed: %s",
+			name, err)
+		return []string{}
+	}
+	return parseSlaveAddrs(addrs, false)
 }

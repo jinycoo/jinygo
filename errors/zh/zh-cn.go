@@ -2,7 +2,7 @@ package zh
 
 /** --------------------------------------------- *
  * @filename   zhCN/
- * @author     jinycoo <caojingyin@jiandan100.cn>
+ * @author     jinycoo <caojingyin@jinycoo.com>
  * @datetime   2019-05-25 17:49
  * @version    1.0.0
  * @desc       .....

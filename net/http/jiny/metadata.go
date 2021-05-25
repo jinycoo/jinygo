@@ -14,8 +14,8 @@ import (
 	"time"
 
 	"jinycoo.com/jinygo/config/env"
-	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/errors"
+	"jinycoo.com/jinygo/log"
 )
 
 const (

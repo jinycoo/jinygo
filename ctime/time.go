@@ -14,9 +14,10 @@ import (
 )
 
 const (
-	PRCDiff        = 28800
-	LayoutDate     = "2006-01-02"
-	LayoutDatetime = "2006-01-02 15:04:05"
+	PRCDiff         = 28800
+	LayoutShortDate = "20060102"
+	LayoutDate      = "2006-01-02"
+	LayoutDatetime  = "2006-01-02 15:04:05"
 )
 
 type Time     int64

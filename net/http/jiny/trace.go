@@ -15,6 +15,10 @@ import (
 	"jinycoo.com/jinygo/net/trace"
 )
 
+const (
+	_defaultComponentName = "net/http"
+)
+
 type closeTracker struct {
 	io.ReadCloser
 	tr trace.Trace

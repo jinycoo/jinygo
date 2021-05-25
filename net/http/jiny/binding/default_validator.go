@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"sync"
 
-	"gopkg.in/go-playground/validator.v8"
+	"jinycoo.com/jinygo/validator"
 )
 
 type defaultValidator struct {
@@ -36,8 +36,7 @@ func (v *defaultValidator) ValidateStruct(obj interface{}) error {
 
 // Engine returns the underlying validator engine which powers the default
 // Validator instance. This is useful if you want to register custom validations
-// or struct level validations. See validator GoDoc for more info -
-// https://godoc.org/gopkg.in/go-playground/validator.v8
+// or struct level validations. See validator GoDoc for more info
 func (v *defaultValidator) Engine() interface{} {
 	v.lazyinit()
 	return v.validate
@@ -45,7 +44,7 @@ func (v *defaultValidator) Engine() interface{} {
 
 func (v *defaultValidator) lazyinit() {
 	v.once.Do(func() {
-		config := &validator.Config{TagName: "binding"}
-		v.validate = validator.New(config)
+		v.validate = validator.New()
+		v.validate.SetTagName("binding")
 	})
 }

@@ -1,127 +1,264 @@
-/**------------------------------------------------------------**
- * @filename log/config.go
- * @author   jinycoo
- * @version  1.0.0
- * @date     2019-07-30 17:23
- * @desc     log - config
- **------------------------------------------------------------**/
+// Copyright (c) 2016 Uber Technologies, Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
 package log
 
 import (
-	"bytes"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
+	"sort"
+	"time"
 
-	"jinycoo.com/jinygo/config/env"
+	"jinycoo.com/jinygo/log/zapcore"
 )
 
-var cfg *Config
+// SamplingConfig sets a sampling strategy for the logger. Sampling caps the
+// global CPU and I/O load that logging puts on your process while attempting
+// to preserve a representative subset of your logs.
+//
+// If specified, the Sampler will invoke the Hook after each decision.
+//
+// Values configured here are per-second. See zapcore.NewSamplerWithOptions for
+// details.
+type SamplingConfig struct {
+	Initial    int                                           `json:"initial" yaml:"initial"`
+	Thereafter int                                           `json:"thereafter" yaml:"thereafter"`
+	Hook       func(zapcore.Entry, zapcore.SamplingDecision) `json:"-" yaml:"-"`
+}
 
-type (
-	logFilter     []string
-	verboseModule map[string]int32
-)
-
+// Config offers a declarative way to construct a logger. It doesn't do
+// anything that can't be done with New, Options, and the various
+// zapcore.WriteSyncer and zapcore.Core wrappers, but it's a simpler way to
+// toggle common options.
+//
+// Note that Config intentionally supports only the most common options. More
+// unusual logging setups (logging to network connections or message queues,
+// splitting output between multiple files, etc.) are possible, but require
+// direct use of the zapcore package. For sample code, see the package-level
+// BasicConfiguration and AdvancedConfiguration examples.
+//
+// For an example showing runtime log level changes, see the documentation for
+// AtomicLevel.
 type Config struct {
-	Family string
-	Host   string
-
-	Level  string
-
-	Std    bool
-	File   bool
-	Dir    string
-
-	Agent interface{}
-	Modules map[string]string
-	Filters []string
+	// Level is the minimum enabled logging level. Note that this is a dynamic
+	// level, so calling Config.Level.SetLevel will atomically change the log
+	// level of all loggers descended from this config.
+	Level AtomicLevel `json:"level" yaml:"level"`
+	// Development puts the logger in development mode, which changes the
+	// behavior of DPanicLevel and takes stacktraces more liberally.
+	Development bool `json:"development" yaml:"development"`
+	// DisableCaller stops annotating logs with the calling function's file
+	// name and line number. By default, all logs are annotated.
+	DisableCaller bool `json:"disableCaller" yaml:"disableCaller"`
+	// DisableStacktrace completely disables automatic stacktrace capturing. By
+	// default, stacktraces are captured for WarnLevel and above logs in
+	// development and ErrorLevel and above in production.
+	DisableStacktrace bool `json:"disableStacktrace" yaml:"disableStacktrace"`
+	// Sampling sets a sampling policy. A nil SamplingConfig disables sampling.
+	Sampling *SamplingConfig `json:"sampling" yaml:"sampling"`
+	// Encoding sets the logger's encoding. Valid values are "json" and
+	// "console", as well as any third-party encodings registered via
+	// RegisterEncoder.
+	Encoding string `json:"encoding" yaml:"encoding"`
+	// EncoderConfig sets options for the chosen encoder. See
+	// zapcore.EncoderConfig for details.
+	EncoderConfig zapcore.EncoderConfig `json:"encoderConfig" yaml:"encoderConfig"`
+	// OutputPaths is a list of URLs or file paths to write logging output to.
+	// See Open for details.
+	OutputPaths []string `json:"outputPaths" yaml:"outputPaths"`
+	// ErrorOutputPaths is a list of URLs to write internal logger errors to.
+	// The default is standard error.
+	//
+	// Note that this setting only affects internal errors; for sample code that
+	// sends error-level logs to a different location from info- and debug-level
+	// logs, see the package-level AdvancedConfiguration example.
+	ErrorOutputPaths []string `json:"errorOutputPaths" yaml:"errorOutputPaths"`
+	// InitialFields is a collection of fields to add to the root logger.
+	InitialFields map[string]interface{} `json:"initialFields" yaml:"initialFields"`
 }
 
-func InitConf(conf *Config, app string) *Config {
-	if conf == nil {
-		conf = new(Config)
-		conf.Std = true
-		conf.Level = _defaultLevelS
-		conf.Family = app
+// NewProductionEncoderConfig returns an opinionated EncoderConfig for
+// production environments.
+func NewProductionEncoderConfig() zapcore.EncoderConfig {
+	return zapcore.EncoderConfig{
+		TimeKey:        "ts",
+		LevelKey:       "level",
+		NameKey:        "logger",
+		CallerKey:      "caller",
+		FunctionKey:    zapcore.OmitKey,
+		MessageKey:     "msg",
+		StacktraceKey:  "stacktrace",
+		LineEnding:     zapcore.DefaultLineEnding,
+		EncodeLevel:    zapcore.LowercaseLevelEncoder,
+		EncodeTime:     zapcore.EpochTimeEncoder,
+		EncodeDuration: zapcore.SecondsDurationEncoder,
+		EncodeCaller:   zapcore.ShortCallerEncoder,
 	}
-	_, exist := _levels[conf.Level]
-	switch env.DeployEnv {
-	case "", env.DeployEnvDev:
-		if !exist {
-			conf.Level = _defaultLevelS
-		}
-		if conf.Std {
-			ent.IsColor = true
-		}
-		ent.IsCaller = true
-	case env.DeployEnvUat:
-		if !exist {
-			conf.Level = _defaultUatLevelS
-		}
-		ent.IsColor = false
-		ent.IsCaller = true
-	default:
-		if !exist {
-			conf.Level = _defaultPreLevelS
-		}
-	}
-
-	if len(conf.Family) == 0 {
-		if len(app) > 0 {
-			conf.Family = app
-		}
-	}
-
-	if len(env.AppID) != 0 {
-		conf.Family = env.AppID // for caster
-	}
-
-	if len(conf.Host) == 0 {
-		conf.Host = env.Hostname
-		if len(conf.Host) == 0 {
-			host, _ := os.Hostname()
-			conf.Host = host
-		}
-	}
-	return conf
 }
 
-func (f *logFilter) String() string {
-	return fmt.Sprint(*f)
-}
-
-// Set sets the value of the named command-line flag.
-// format: -log.filter key1,key2
-func (f *logFilter) Set(value string) error {
-	for _, i := range strings.Split(value, ",") {
-		*f = append(*f, strings.TrimSpace(i))
+// NewProductionConfig is a reasonable production logging configuration.
+// Logging is enabled at InfoLevel and above.
+//
+// It uses a JSON encoder, writes to standard error, and enables sampling.
+// Stacktraces are automatically included on logs of ErrorLevel and above.
+func NewProductionConfig() Config {
+	return Config{
+		Level:       NewAtomicLevelAt(InfoLevel),
+		Development: false,
+		Sampling: &SamplingConfig{
+			Initial:    100,
+			Thereafter: 100,
+		},
+		Encoding:         "json",
+		EncoderConfig:    NewProductionEncoderConfig(),
+		OutputPaths:      []string{"stderr"},
+		ErrorOutputPaths: []string{"stderr"},
 	}
-	return nil
 }
 
-func (m verboseModule) String() string {
-	// FIXME strings.Builder
-	var buf bytes.Buffer
-	for k, v := range m {
-		buf.WriteString(k)
-		buf.WriteString(strconv.FormatInt(int64(v), 10))
-		buf.WriteString(",")
+// NewDevelopmentEncoderConfig returns an opinionated EncoderConfig for
+// development environments.
+func NewDevelopmentEncoderConfig() zapcore.EncoderConfig {
+	return zapcore.EncoderConfig{
+		// Keys can be anything except the empty string.
+		TimeKey:        "T",
+		LevelKey:       "L",
+		NameKey:        "N",
+		CallerKey:      "C",
+		FunctionKey:    zapcore.OmitKey,
+		MessageKey:     "M",
+		StacktraceKey:  "S",
+		LineEnding:     zapcore.DefaultLineEnding,
+		EncodeLevel:    zapcore.CapitalLevelEncoder,
+		EncodeTime:     zapcore.ISO8601TimeEncoder,
+		EncodeDuration: zapcore.StringDurationEncoder,
+		EncodeCaller:   zapcore.ShortCallerEncoder,
 	}
-	return buf.String()
 }
 
-// Set sets the value of the named command-line flag.
-// format: -log.module file=1,file2=2
-func (m verboseModule) Set(value string) error {
-	for _, i := range strings.Split(value, ",") {
-		kv := strings.Split(i, "=")
-		if len(kv) == 2 {
-			if v, err := strconv.ParseInt(kv[1], 10, 64); err == nil {
-				m[strings.TrimSpace(kv[0])] = int32(v)
+// NewDevelopmentConfig is a reasonable development logging configuration.
+// Logging is enabled at DebugLevel and above.
+//
+// It enables development mode (which makes DPanicLevel logs panic), uses a
+// console encoder, writes to standard error, and disables sampling.
+// Stacktraces are automatically included on logs of WarnLevel and above.
+func NewDevelopmentConfig() Config {
+	return Config{
+		Level:            NewAtomicLevelAt(DebugLevel),
+		Development:      true,
+		Encoding:         "console",
+		EncoderConfig:    NewDevelopmentEncoderConfig(),
+		OutputPaths:      []string{"stderr"},
+		ErrorOutputPaths: []string{"stderr"},
+	}
+}
+
+// Build constructs a logger from the Config and Options.
+func (cfg Config) Build(opts ...Option) (*Logger, error) {
+	enc, err := cfg.buildEncoder()
+	if err != nil {
+		return nil, err
+	}
+
+	sink, errSink, err := cfg.openSinks()
+	if err != nil {
+		return nil, err
+	}
+
+	if cfg.Level == (AtomicLevel{}) {
+		return nil, fmt.Errorf("missing Level")
+	}
+
+	log := New(
+		zapcore.NewCore(enc, sink, cfg.Level),
+		cfg.buildOptions(errSink)...,
+	)
+	if len(opts) > 0 {
+		log = log.WithOptions(opts...)
+	}
+	return log, nil
+}
+
+func (cfg Config) buildOptions(errSink zapcore.WriteSyncer) []Option {
+	opts := []Option{ErrorOutput(errSink)}
+
+	if cfg.Development {
+		opts = append(opts, Development())
+	}
+
+	if !cfg.DisableCaller {
+		opts = append(opts, AddCaller())
+	}
+
+	stackLevel := ErrorLevel
+	if cfg.Development {
+		stackLevel = WarnLevel
+	}
+	if !cfg.DisableStacktrace {
+		opts = append(opts, AddStacktrace(stackLevel))
+	}
+
+	if scfg := cfg.Sampling; scfg != nil {
+		opts = append(opts, WrapCore(func(core zapcore.Core) zapcore.Core {
+			var samplerOpts []zapcore.SamplerOption
+			if scfg.Hook != nil {
+				samplerOpts = append(samplerOpts, zapcore.SamplerHook(scfg.Hook))
 			}
-		}
+			return zapcore.NewSamplerWithOptions(
+				core,
+				time.Second,
+				cfg.Sampling.Initial,
+				cfg.Sampling.Thereafter,
+				samplerOpts...,
+			)
+		}))
 	}
-	return nil
+
+	if len(cfg.InitialFields) > 0 {
+		fs := make([]Field, 0, len(cfg.InitialFields))
+		keys := make([]string, 0, len(cfg.InitialFields))
+		for k := range cfg.InitialFields {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		for _, k := range keys {
+			fs = append(fs, Any(k, cfg.InitialFields[k]))
+		}
+		opts = append(opts, Fields(fs...))
+	}
+
+	return opts
+}
+
+func (cfg Config) openSinks() (zapcore.WriteSyncer, zapcore.WriteSyncer, error) {
+	sink, closeOut, err := Open(cfg.OutputPaths...)
+	if err != nil {
+		return nil, nil, err
+	}
+	errSink, _, err := Open(cfg.ErrorOutputPaths...)
+	if err != nil {
+		closeOut()
+		return nil, nil, err
+	}
+	return sink, errSink, nil
+}
+
+func (cfg Config) buildEncoder() (zapcore.Encoder, error) {
+	return newEncoder(cfg.Encoding, cfg.EncoderConfig)
 }

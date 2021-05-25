@@ -7,7 +7,7 @@ package render
 import (
 	"net/http"
 
-	"gopkg.in/yaml.v2"
+	"jinycoo.com/jinygo/utils/file/yaml"
 )
 
 // YAML contains the given interface object.

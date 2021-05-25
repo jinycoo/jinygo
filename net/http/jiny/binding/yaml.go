@@ -9,7 +9,7 @@ import (
 	"io"
 	"net/http"
 
-	"gopkg.in/yaml.v2"
+	"jinycoo.com/jinygo/utils/file/yaml"
 )
 
 type yamlBinding struct{}

@@ -1,6 +1,6 @@
 /**------------------------------------------------------------**
  * @filename sql/mysql.go
- * @author   jinycoo - caojingyin@jiandan100.cn
+ * @author   jinycoo - caojingyin@jinycoo.com
  * @version  1.0.0
  * @date     2019/10/15 09:41
  * @desc     sql - mysql adapter db

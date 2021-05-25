@@ -16,14 +16,13 @@ import (
 	"time"
 
 	"jinycoo.com/jinygo/common/constants"
-	_ "jinycoo.com/jinygo/database/sql/mysql"
-	"jinycoo.com/jinygo/log"
-
 	"jinycoo.com/jinygo/ctime"
+	_ "jinycoo.com/jinygo/database/sql/mysql"
+	"jinycoo.com/jinygo/errors"
+	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/net/netutil/breaker"
 	"jinycoo.com/jinygo/net/trace"
 	"jinycoo.com/jinygo/stat"
-	"jinycoo.com/jinygo/errors"
 )
 
 const (
@@ -749,6 +748,7 @@ func BuildSqlIn(inValues interface{}) (sql string, params []interface{}) {
 		}
 		params = make([]interface{}, vlen)
 		for i, v := range vals {
+			ph = append(ph, constants.PlaceHolder)
 			params[i] = v
 		}
 	default:

@@ -8,8 +8,9 @@ import (
 	"html/template"
 	"net/http"
 
-	"jinycoo.com/jinygo/utils/json"
 	"jinycoo.com/jinygo/errors"
+	"jinycoo.com/jinygo/utils/cstring"
+	"jinycoo.com/jinygo/utils/json"
 )
 
 // JSON contains the given interface object.
@@ -70,11 +71,11 @@ func (r JsonpJSON) Render(w http.ResponseWriter) (err error) {
 	}
 
 	callback := template.JSEscapeString(r.Callback)
-	_, err = w.Write([]byte(callback))
+	_, err = w.Write(cstring.UStringToBytes(callback))
 	if err != nil {
 		return err
 	}
-	_, err = w.Write([]byte("("))
+	_, err = w.Write(cstring.UStringToBytes("("))
 	if err != nil {
 		return err
 	}
@@ -82,7 +83,7 @@ func (r JsonpJSON) Render(w http.ResponseWriter) (err error) {
 	if err != nil {
 		return err
 	}
-	_, err = w.Write([]byte(")"))
+	_, err = w.Write(cstring.UStringToBytes(")"))
 	if err != nil {
 		return err
 	}
