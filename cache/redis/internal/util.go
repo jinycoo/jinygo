@@ -53,7 +53,7 @@ func isLower(s string) bool {
 
 //------------------------------------------------------------------------------
 
-var tracer = otel.Tracer("github.com/go-redis/redis")
+var tracer = otel.Tracer("jinycoo.com/jinygo/cache/redis")
 
 func StartSpan(ctx context.Context, name string) (context.Context, trace.Span) {
 	if span := trace.SpanFromContext(ctx); !span.IsRecording() {

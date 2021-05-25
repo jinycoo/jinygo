@@ -105,7 +105,6 @@ var _ = Describe("pool", func() {
 	})
 
 	It("reuses connections", func() {
-		// explain: https://github.com/go-redis/redis/pull/1675
 		opt := redisOptions()
 		opt.MinIdleConns = 0
 		opt.MaxConnAge = 0
