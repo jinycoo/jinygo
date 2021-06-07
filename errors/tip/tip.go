@@ -19,9 +19,9 @@ import (
 	"time"
 
 	"jinycoo.com/jinygo/ctime"
+	"jinycoo.com/jinygo/errors"
 	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/net/http/jiny"
-	"jinycoo.com/jinygo/errors"
 )
 
 const (

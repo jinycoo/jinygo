@@ -98,6 +98,7 @@ func Init(cfg *Config) {
 			err := errors.NothingFound
 			c.JSON(http.StatusNotFound, err)
 		})
+		internalEngine.Use(middleware.Prom(nil))
 		//internalEngine.addRoute("GET", "/metrics", HandlersChain{monitor()})
 		//internalEngine.addRoute("GET", "/metadata", HandlersChain{engine.metadata()})
 
@@ -131,10 +132,7 @@ func Index(handler server.HandlerFn) {
 }
 
 func PromMonitor() {
-	internalEngine.GET("/metrics", func(c *server.Context) {
-		h := promhttp.Handler()
-		h.ServeHTTP(c.Writer, c.Request)
-	})
+	internalEngine.GET("/metrics", middleware.PromHandler(promhttp.Handler()))
 }
 
 func Run() (err error) {

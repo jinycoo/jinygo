@@ -12,11 +12,11 @@ import (
 	"runtime"
 	"sync"
 
+	"jinycoo.com/jinygo/errors"
 	"jinycoo.com/jinygo/log"
 	"jinycoo.com/jinygo/net/metadata"
 	"jinycoo.com/jinygo/net/trace"
 	"jinycoo.com/jinygo/stat/prom"
-	"jinycoo.com/jinygo/errors"
 )
 
 var (

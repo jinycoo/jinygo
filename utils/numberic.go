@@ -8,8 +8,10 @@
 package utils
 
 import (
+	"math/rand"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var (
@@ -73,7 +75,7 @@ func ParseNumberTZh(number int, isTraditional bool) (zhNo string) {
 	}
 	var i,j uint8
 	for i = 0; i < m; i++ {
-		if  i > 0 || n == 0 {
+		if i > 0 || n == 0 {
 			n = 4
 		}
 		for j = 0; j < n; j++ {
@@ -95,4 +97,12 @@ func ParseNumberTZh(number int, isTraditional bool) (zhNo string) {
 		zh = append(zh, symbol[idx])
 	}
 	return strings.Join(zh, "")
+}
+
+// 将时间戳设置成种子数
+// 生成随机数
+func MtRandInt(min, max int) int {
+	rand.Seed(time.Now().UnixNano())
+	randNum := rand.Intn(max-min) + min
+	return randNum
 }

@@ -10,13 +10,33 @@ package en
 
 var EN = map[int]string{
 	0:    "ok",
-	-1:   "AppKeyInvalid",           // 应用程序不存在或已被封禁
-	-2:   "AccessKeyErr",            // Access Key错误
-	-3:   "SignCheckErr",            // API校验密匙错误
-	-4:   "MethodNoPermission",      // 调用方对该Method没有权限
-	-5:   "StatusError",             // 状态错误
-	-6:   "ParamsErr",               // 参数错误
-	-8:   "DataErr",                 // 数据错误
+	-1:  "Unknow type",
+	-2:  "Status Error",
+	-3:  "Status Error",
+	-4:  "Params Error",
+	-5:  "Data Error",
+	-6:  "404 NOT FOUND",
+	-7:  "App key invalid",
+	-8:  "Access key error",
+	-9:  "API sign check error",
+	-10: "Method no permission",
+
+	-20: "token malformed",
+	-21: "token is not valid yet",
+	-22: "token is expired",
+	-23: "token invalid",
+	-24: "token signature is invalid", // Token签名无效
+
+	-31: "token contains an invalid number of segments",
+	-32: "token string should not contain 'bearer '",
+	-33: "failed to decode token header",
+	-34: "failed to unmarshal token header",
+	-35: "failed to decode token claims",
+	-36: "failed to unmarshal token claims",
+	-37: "signing method (alg) is unavailable",
+	-38: "signing method (alg) is unspecified",
+	-39: "signing method (alg) is invalid",
+
 	-101: "NoLogin",                 // 账号未登录
 	-102: "UserDisabled",            // 账号被封停
 	-103: "LogInAgain",              // 网络错误，需要重新登录
@@ -62,6 +82,7 @@ var EN = map[int]string{
 	-688: "AreaLimit",             // 地理区域限制
 	-689: "CopyrightLimit",        // 版权限制
 
+	-707: "AccountAbnormal", //
 	-870: "DataSourceConfigErr",
 	-871: "DataSourceConfigFieldNotFound",
 

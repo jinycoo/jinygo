@@ -1,11 +1,10 @@
-// +build gofuzz
-
 package fuzz
 
 import (
 	"context"
-	"jinycoo.com/jinygo/cache/redis"
 	"time"
+
+	"jinycoo.com/jinygo/cache/redis"
 )
 
 var (

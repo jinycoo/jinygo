@@ -8,9 +8,11 @@
 package cstring
 
 import (
+	"fmt"
 	"net"
 	"regexp"
 	"strings"
+	"unicode"
 )
 
 var emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
@@ -61,4 +63,48 @@ func isLower(s string) bool {
 		}
 	}
 	return true
+}
+
+func GenEmailStar(email string) (xemail string) {
+	emailBytes := []byte(email)
+	el := len(emailBytes)
+	if el > 10 {
+		xemail = fmt.Sprintf("%s******%s", string(emailBytes[0:3]), string(emailBytes[el-4:]))
+	} else {
+		xemail = fmt.Sprintf("%s***%s", emailBytes[0:2], emailBytes[el-2:])
+	}
+	return
+}
+
+//判断是否为手机号
+func IsMobileValid(mobile string) (b bool) {
+	if len(mobile) < 11 {
+		return false
+	}
+	if m, _ := regexp.MatchString("^1([38][0-9]|14[57]|5[^4])\\d{8}$", mobile); !m {
+		return false
+	}
+	return true
+}
+
+//判断是否为手机号
+func IsUrlValid(url string) (b bool) {
+	if len(url) < 0 {
+		return false
+	}
+	if b, _ := regexp.MatchString("^(?:https?:\\/\\/)?(?:[^@\\/\\n]+@)?(?:www\\.)?([^:\\/\\n]+)", url); !b {
+		return false
+	}
+	return true
+}
+
+func ContainsPunct(body, excludes string) (rs bool) {
+	var rl = []rune(body)
+	for _, ch := range rl {
+		if unicode.IsPunct(ch) && !strings.ContainsRune(excludes, ch) {
+			rs = true
+			break
+		}
+	}
+	return
 }

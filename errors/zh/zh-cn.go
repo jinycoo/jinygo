@@ -10,15 +10,33 @@ package zh
 
 var ZH_CN = map[int]string{
 	0:    "ok",
-	-1:   "应用程序不存在或已被封禁",
-	-2:   "Access Key错误",
-	-3:   "API校验密匙错误",
-	-4:   "调用方对该Method没有权限",
-	-5:   "状态错误",
-	-6:   "状态无效",
-	-7:   "参数错误",
-	-8:   "未找到请求数据",
-	-9:   "数据错误",
+	-1:  "未知类型",
+	-2:  "状态错误",
+	-3:  "状态错误",
+	-4:  "参数错误",
+	-5:  "数据错误",
+	-6:  "未找到请求数据",
+	-7:  "应用程序不存在或已被封禁",
+	-8:  "Access Key错误",
+	-9:  "API校验密匙错",
+	-10: "调用方对该Method没有权限",
+
+	-20: "Token错误",   // Token malformed
+	-21: "Token尚未激活", // token is not valid yet
+	-22: "Token已过期",  // token is expired
+	-23: "Token无效",   // Token invalid
+	-24: "Token签名无效", // Token Signature invalid
+
+	-31: "Token 包含多个无效片段",   // token contains an invalid number of segments
+	-32: "Token中没有包含Bearer", // token string should not contain 'bearer '
+	-33: "无效的Token令牌头",      // failed to decode token header
+	-34: "无法解组令牌头",          // failed to unmarshal token header
+	-35: "无法解码令牌声明",         // failed to decode token claims
+	-36: "无法解组令牌声明",         // failed to unmarshal token claims
+	-37: "签名方法（alg）不可用",     // signing method (alg) is unavailable.
+	-38: "签名方法（alg）未指定",     // signing method (alg) is unspecified.
+	-39: "签名方法（alg）未指定",     // signing method %v is invalid
+
 	-101: "账号未登录",
 	-102: "账号被封停",
 	-103: "网络错误，需要重新登录",
@@ -32,16 +50,20 @@ var ZH_CN = map[int]string{
 	-113: "账号尚未实名认证",
 	-114: "请先绑定手机",
 	-115: "请先完成实名认证",
-	-304: "木有改动",
+	-116: "手机号错误",
+	-117: "银行卡号错误",
+	-118: "网址错误",
+	-304: "没有改动",
 	-307: "撞车跳转",
 	-400: "请求错误",
 	-401: "未认证",
 	-403: "访问权限不足",
-	-404: "啥都木有",
+	-404: "访问东东不存在",
 	-405: "不支持该方法",
 	-409: "冲突",
 
 	-500: "服务器错误",
+	-501: "服务错误,请稍候重试",
 	-503: "过载保护,服务暂不可用",
 	-504: "服务调用超时",
 	-509: "超出限制",
@@ -50,6 +72,9 @@ var ZH_CN = map[int]string{
 	-601: "Token尚未激活",
 	-602: "登录状态已过期",
 	-603: "无效Token",
+	-604: "无效凭证",
+	-605: "凭证已过期",
+	-606: "凭证已使用",
 
 	-616: "上传文件不存在",
 	-617: "上传文件太大",
@@ -75,11 +100,13 @@ var ZH_CN = map[int]string{
 	-704: "账号不存在",
 	-705: "账号已存在",
 	-706: "Ticket已使用",
+	-707: "账户异常", // AccountAbnormal
 
 	-870: "数据配置错误",
 	-871: "数据源未配置或字段名错误",
 
 	-1000: "网络连接错误",
+	-1001: "网络连接超时",
 	-1200: "被降级过滤的请求",
 	-1201: "rpc服务的client都不可用",
 	-1202: "rpc服务的client没有授权",

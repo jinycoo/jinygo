@@ -11,15 +11,35 @@ package errors
 var (
 	OK = add(0) // 正确
 
-	AppKeyInvalid           = add(-1)   // 应用程序不存在或已被封禁
-	AccessKeyErr            = add(-2)   // Access Key错误
-	SignCheckErr            = add(-3)   // API校验密匙错
-	MethodNoPermission      = add(-4)   // 调用方对该Method没有权限
-	StatusError             = add(-5)   // 状态错误
-	StatusInvalid           = add(-6)   // 状态无效
-	ParamsErr               = add(-7)   // 参数错误
-	NotFoundData            = add(-8)   // 未找到请求数据
-	DataErr                 = add(-9)   // 数据错误
+	// Common Error
+	UnknownType   = add(-1) // 未知类型
+	StatusErr     = add(-2) // 状态错误
+	StatusInvalid = add(-3) // 状态无效
+	ParamsErr     = add(-4) // 参数错误
+	DataErr       = add(-5) // 数据错误
+	NotFoundData  = add(-6) // 未找到请求数据
+
+	AppKeyInvalid      = add(-7)  // 应用程序不存在或已被封禁
+	AccessKeyErr       = add(-8)  // Access Key错误
+	SignCheckErr       = add(-9)  // API校验密匙错
+	MethodNoPermission = add(-10) // 调用方对该Method没有权限
+
+	AuthTokenErr              = add(-20) // Token错误 - Token malformed
+	AuthTokenNotValidYet      = add(-21) // Token尚未激活 - token is not valid yet
+	AuthTokenExpired          = add(-22) // Token已过期 - token is expired
+	AuthTokenInvalid          = add(-23) // Token无效 - Token invalid
+	AuthTokenSignatureInvalid = add(-24) // Token签名无效 - Token Signature invalid
+
+	AuthJwtSegmentsNumInvalid = add(-31) // Token 包含多个无效片段 - token contains an invalid number of segments
+	AuthJwtBearerErr          = add(-32) // Token中没有包含Bearer - token string should not contain 'bearer '
+	AuthJwtHeaderInvalid      = add(-33) // 无效的Token令牌头 failed to decode token header
+	AuthJwtHeaderUnmarshalErr = add(-34) // 无法解组令牌头 failed to unmarshal token header
+	AuthJwtClaimsErr          = add(-35) // 无法解码令牌声明 failed to decode token claims
+	AuthJwtClaimsUnmarshalErr = add(-36) // 无法解组令牌声明 failed to unmarshal token claims
+	AuthJwtAlgUnverfiable     = add(-37) // 签名方法（alg）不可用  signing method (alg) is unavailable.
+	AuthJwtAlgUnspecified     = add(-38) // 签名方法（alg）未指定。  signing method (alg) is unspecified.
+	AuthJwtAlgInvalid         = add(-39) // 签名方法（alg）未指定。 // signing method %v is invalid
+
 	NoLogin                 = add(-101) // 账号未登录
 	UserDisabled            = add(-102) // 账号被封停
 	LogInAgain              = add(-103) // 网络错误，需要重新登录
@@ -33,21 +53,33 @@ var (
 	UserIDCheckInvalid      = add(-113) // 账号尚未实名认证
 	UserIDCheckInvalidPhone = add(-114) // 请先绑定手机
 	UserIDCheckInvalidCard  = add(-115) // 请先完成实名认证
+	MobileNoErr             = add(-116) // 手机号错误
+	BankCardNoErr           = add(-117) // 银行卡号错误
+	WebSiteURLErr           = add(-118) // 网址错误
 
-	NotModified       = add(-304) // 木有改动
+	NotModified       = add(-304) // 没有改动
 	TemporaryRedirect = add(-307) // 撞车跳转
 	RequestErr        = add(-400) // 请求错误
 	Unauthorized      = add(-401) // 未认证
 	AccessDenied      = add(-403) // 访问权限不足
-	NothingFound      = add(-404) // 啥都木有
+	NothingFound      = add(-404) // 请求不存在
 	MethodNotAllowed  = add(-405) // 不支持该方法
 
 	Conflict = add(-409) // 冲突
 
 	ServerErr          = add(-500) // 服务器错误
+	ServerErrAgain     = add(-501) // 服务错误,请稍候重试
 	ServiceUnavailable = add(-503) // 过载保护,服务暂不可用
 	Deadline           = add(-504) // 服务调用超时
 	LimitExceed        = add(-509) // 超出限制
+
+	TokenMalformed   = add(-600) // Token错误
+	TokenNotValidYet = add(-601) // Token尚未激活
+	TokenExpired   = add(-602) // Token已过期
+	TokenInvalid   = add(-603) // 无效Token
+	TicketInvalid  = add(-604) // 无效凭证
+	TicketExpired  = add(-605) // 凭证已过期
+	TicketConsumed = add(-606) // 凭证已使用
 
 	FileNotExists         = add(-616) // 上传文件不存在
 	FileTooLarge          = add(-617) // 上传文件太大
@@ -61,11 +93,6 @@ var (
 	UserLevelLow          = add(-650) // 用户等级太低
 	UserDuplicate         = add(-652) // 重复的用户
 
-	TokenMalformed   = add(-600) // Token错误
-	TokenNotValidYet = add(-601) // Token尚未激活
-	TokenExpired     = add(-602) // Token已过期
-	TokenInvalid     = add(-603) // 无效Token
-
 	PasswordHashExpires = add(-662) // 密码时间戳过期
 	AreaLimit           = add(-688) // 地理区域限制
 	CopyrightLimit      = add(-689) // 版权限制
@@ -78,6 +105,7 @@ var (
 	AccountNotExist  = add(-704) // 账号不存在
 	AccountDuplicate = add(-705) // 账号已存在
 	AccountConsumed  = add(-706) // 账号已登录
+	AccountAbnormal  = add(-707) // 账户异常
 
 	AddFailure    = add(-800) // 添加失败
 	UpdateFailure = add(-801) // 更新失败
@@ -87,6 +115,7 @@ var (
 	DataSourceConfigFieldNotFound = add(-871) // 数据源未配置或字段名错误
 
 	LinkErr      = add(-1000) // 网络连接错误
+	LinkTimeout  = add(-1001) // 网络连接超时
 	Degrade      = add(-1200) // 被降级过滤的请求
 	RPCConfigErr = add(-1203) // rpc服务配置错误
 	RPCNoClient  = add(-1201) // rpc服务的client都不可用
