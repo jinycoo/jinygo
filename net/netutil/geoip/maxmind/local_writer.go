@@ -1,6 +1,6 @@
 /**------------------------------------------------------------**
  * @filename maxmind/wirter.go
- * @author   jiny - caojingyin@baimaohui.net
+ * @author   jiny - caojingyin@jinycoo.com
  * @version  1.0.0
  * @date     2020/11/6 12:25
  * @desc     maxmind-wirter - summary

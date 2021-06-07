@@ -1,7 +1,7 @@
 /**------------------------------------------------------------**
  * @file     jinycoo.com/cache.go
  * @version  1.0.0
- * @author   jinycoo - caojingyin@baimaohui.net
+ * @author   jinycoo - caojingyin@jinycoo.com
  * @date     2020/8/12 9:48
  * @desc     jinycoo.com - main - summary
  **------------------------------------------------------------**/
