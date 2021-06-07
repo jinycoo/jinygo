@@ -4,14 +4,13 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"jinycoo.com/jinygo/cache"
 	"sync/atomic"
 	"time"
 
-	"go.opentelemetry.io/otel/attribute"
 	"jinycoo.com/jinygo/cache/redis/internal"
 	"jinycoo.com/jinygo/cache/redis/internal/pool"
 	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"go.opentelemetry.io/otel/attribute"
 )
 
 // Nil reply returned by Redis when key does not exist.
@@ -566,22 +565,6 @@ type Client struct {
 	cmdable
 	hooks
 	ctx context.Context
-}
-
-func New(cfg *cache.Config) *Client {
-	var opt = &Options {
-		Network: cfg.Network,
-		Addr: cfg.Addr,
-		Username: cfg.Username,
-		Password: cfg.Password,
-		DB: cfg.Db,
-
-		DialTimeout: time.Duration(cfg.DialTimeout),
-		ReadTimeout: time.Duration(cfg.ReadTimeout),
-		WriteTimeout: time.Duration(cfg.WriteTimeout),
-		IdleTimeout: time.Duration(cfg.IdleTimeout),
-	}
-	return NewClient(opt)
 }
 
 // NewClient returns a client to the Redis Server specified by Options.

@@ -26,9 +26,9 @@ import (
 	"io"
 	"testing"
 
-	richErrors "github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 
+	richErrors "jinycoo.com/jinygo/errors"
 	"jinycoo.com/jinygo/log/multierr"
 	. "jinycoo.com/jinygo/log/zapcore"
 )

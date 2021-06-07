@@ -32,7 +32,7 @@ import (
 // is also added with the full verbose error message.
 //
 // Finally, if the error implements errorGroup (from jinycoo.com/jinygo/log/multierr) or
-// causer (from github.com/pkg/errors), a ${key}Causes field is added with an
+// causer, a ${key}Causes field is added with an
 // array of objects containing the errors this error was comprised of.
 //
 //  {
@@ -52,8 +52,6 @@ func encodeError(key string, err error, enc ObjectEncoder) error {
 	case fmt.Formatter:
 		verbose := fmt.Sprintf("%+v", e)
 		if verbose != basic {
-			// This is a rich error type, like those produced by
-			// github.com/pkg/errors.
 			enc.AddString(key+"Verbose", verbose)
 		}
 	}

@@ -3,6 +3,7 @@ package redis_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+
 	"jinycoo.com/jinygo/cache/redis"
 )
 

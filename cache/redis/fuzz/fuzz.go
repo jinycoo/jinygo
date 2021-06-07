@@ -4,9 +4,8 @@ package fuzz
 
 import (
 	"context"
-	"time"
-
 	"jinycoo.com/jinygo/cache/redis"
+	"time"
 )
 
 var (

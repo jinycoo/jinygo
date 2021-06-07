@@ -24,11 +24,11 @@ import (
 	"errors"
 	"testing"
 
-	"jinycoo.com/jinygo/log/zapcore"
-
-	richErrors "github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	richErrors "jinycoo.com/jinygo/errors"
+	"jinycoo.com/jinygo/log/zapcore"
 )
 
 func TestErrorConstructors(t *testing.T) {
