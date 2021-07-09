@@ -10,7 +10,7 @@ package breaker
 import (
 	"time"
 
-	"jinycoo.com/jinygo/ctime"
+	"github.com/jinycoo/jinygo/ctime"
 )
 
 type Config struct {

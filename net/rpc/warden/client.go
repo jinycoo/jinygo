@@ -10,18 +10,18 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/config"
-	"jinycoo.com/jinygo/config/env"
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/naming"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/config"
+	"github.com/jinycoo/jinygo/config/env"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/naming"
+	"github.com/jinycoo/jinygo/errors"
 
-	"jinycoo.com/jinygo/net/netutil/breaker"
-	"jinycoo.com/jinygo/net/rpc/warden/balancer/wrr"
-	"jinycoo.com/jinygo/net/rpc/warden/status"
-	"jinycoo.com/jinygo/net/trace"
+	"github.com/jinycoo/jinygo/net/netutil/breaker"
+	"github.com/jinycoo/jinygo/net/rpc/warden/balancer/wrr"
+	"github.com/jinycoo/jinygo/net/rpc/warden/status"
+	"github.com/jinycoo/jinygo/net/trace"
 
-	nmd "jinycoo.com/jinygo/net/metadata"
+	nmd "github.com/jinycoo/jinygo/net/metadata"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"

@@ -8,7 +8,7 @@
 package mgdb
 
 import (
-	"jinycoo.com/jinygo/ctime"
+	"github.com/jinycoo/jinygo/ctime"
 )
 
 type Config struct {

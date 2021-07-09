@@ -31,8 +31,8 @@ import (
 	"strings"
 	"testing"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/log/zapcore"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -43,8 +43,8 @@ import (
 // intended to match on the function name, while this is on the full output
 // which includes filenames.
 var _zapPackages = []string{
-	"jinycoo.com/jinygo/log.",
-	"jinycoo.com/jinygo/log/zapcore.",
+	"github.com/jinycoo/jinygo/log.",
+	"github.com/jinycoo/jinygo/log/zapcore.",
 }
 
 func TestStacktraceFiltersZapLog(t *testing.T) {
@@ -95,7 +95,7 @@ func TestStacktraceFiltersVendorZap(t *testing.T) {
 		zapDir, err := os.Getwd()
 		require.NoError(t, err, "Failed to get current directory")
 
-		testDir := filepath.Join(goPath, "src/jinycoo.com/jinygo/log_test/")
+		testDir := filepath.Join(goPath, "src/github.com/jinycoo/jinygo/log_test/")
 		vendorDir := filepath.Join(testDir, "vendor")
 		require.NoError(t, os.MkdirAll(testDir, 0777), "Failed to create source director")
 
@@ -103,7 +103,7 @@ func TestStacktraceFiltersVendorZap(t *testing.T) {
 		setupSymlink(t, curFile, filepath.Join(testDir, curFile))
 
 		// Set up symlinks for zap, and for any test dependencies.
-		setupSymlink(t, zapDir, filepath.Join(vendorDir, "jinycoo.com/jinygo/log"))
+		setupSymlink(t, zapDir, filepath.Join(vendorDir, "github.com/jinycoo/jinygo/log"))
 		for _, dep := range deps {
 			setupSymlink(t, dep.Dir, filepath.Join(vendorDir, dep.ImportPath))
 		}

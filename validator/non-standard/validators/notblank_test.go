@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"jinycoo.com/jinygo/validator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 type test struct {

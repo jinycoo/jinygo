@@ -13,7 +13,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"jinycoo.com/jinygo/utils/cstring"
+	"github.com/jinycoo/jinygo/utils/cstring"
 )
 
 /**

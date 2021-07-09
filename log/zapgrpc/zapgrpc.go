@@ -19,9 +19,9 @@
 // THE SOFTWARE.
 
 // Package zapgrpc provides a logger that is compatible with grpclog.
-package zapgrpc // import "jinycoo.com/jinygo/log/zapgrpc"
+package zapgrpc // import "github.com/jinycoo/jinygo/log/zapgrpc"
 
-import "jinycoo.com/jinygo/log"
+import "github.com/jinycoo/jinygo/log"
 
 // An Option overrides a Logger's default configuration.
 type Option interface {

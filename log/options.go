@@ -23,7 +23,7 @@ package log
 import (
 	"fmt"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // An Option configures a Logger.

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
 )
 
 type poolGetPutBenchmark struct {

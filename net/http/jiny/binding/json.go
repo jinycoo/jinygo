@@ -10,7 +10,7 @@ import (
 	"io"
 	"net/http"
 
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 // EnableDecoderUseNumber is used to call the UseNumber method on the JSON

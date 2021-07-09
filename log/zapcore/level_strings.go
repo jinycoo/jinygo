@@ -20,7 +20,7 @@
 
 package zapcore
 
-import "jinycoo.com/jinygo/log/internal/color"
+import "github.com/jinycoo/jinygo/log/internal/color"
 
 var (
 	_levelToColor = map[Level]color.Color{

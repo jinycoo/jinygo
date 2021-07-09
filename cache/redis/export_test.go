@@ -6,9 +6,9 @@ import (
 	"net"
 	"strings"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/hashtag"
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/hashtag"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
 )
 
 func (c *baseClient) Pool() pool.Pooler {

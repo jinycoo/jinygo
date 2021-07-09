@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"jinycoo.com/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/auth/jwt"
 )
 
 // For HMAC signing method, the key can be any []byte. It is recommended to generate

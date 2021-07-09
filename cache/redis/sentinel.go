@@ -9,9 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
-	"jinycoo.com/jinygo/cache/redis/internal/rand"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal/rand"
 )
 
 //------------------------------------------------------------------------------

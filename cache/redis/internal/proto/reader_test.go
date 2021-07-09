@@ -5,7 +5,7 @@ import (
 	"io"
 	"testing"
 
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 func BenchmarkReader_ParseReply_Status(b *testing.B) {

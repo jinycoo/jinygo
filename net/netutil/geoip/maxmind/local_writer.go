@@ -15,7 +15,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 type Writer interface {

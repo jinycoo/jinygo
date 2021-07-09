@@ -9,10 +9,10 @@ import (
 
 	"go.opentelemetry.io/otel/attribute"
 
-	"jinycoo.com/jinygo/cache"
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 // Nil reply returned by Redis when key does not exist.

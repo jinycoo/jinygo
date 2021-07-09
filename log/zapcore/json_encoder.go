@@ -28,8 +28,8 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"jinycoo.com/jinygo/log/buffer"
-	"jinycoo.com/jinygo/log/internal/bufferpool"
+	"github.com/jinycoo/jinygo/log/buffer"
+	"github.com/jinycoo/jinygo/log/internal/bufferpool"
 )
 
 // For JSON-escaping; see jsonEncoder.safeAddString below.

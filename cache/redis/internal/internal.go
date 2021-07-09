@@ -3,7 +3,7 @@ package internal
 import (
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal/rand"
+	"github.com/jinycoo/jinygo/cache/redis/internal/rand"
 )
 
 func RetryBackoff(retry int, minBackoff, maxBackoff time.Duration) time.Duration {

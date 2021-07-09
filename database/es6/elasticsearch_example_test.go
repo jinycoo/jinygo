@@ -14,8 +14,8 @@ import (
 	"os"
 	"time"
 
-	"jinycoo.com/jinygo/database/es6"
-	"jinycoo.com/jinygo/database/es6/estransport"
+	"github.com/jinycoo/jinygo/database/es6"
+	"github.com/jinycoo/jinygo/database/es6/estransport"
 )
 
 func init() {
@@ -59,7 +59,7 @@ func ExampleNewClient() {
 }
 
 func ExampleNewClient_logger() {
-	// import "jinycoo.com/jinygo/database/es6/estransport"
+	// import "github.com/jinycoo/jinygo/database/es6/estransport"
 
 	// Use one of the bundled loggers:
 	//

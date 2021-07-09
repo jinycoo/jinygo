@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"jinycoo.com/jinygo/database/es6"
-	"jinycoo.com/jinygo/database/es6/esapi"
+	"github.com/jinycoo/jinygo/database/es6"
+	"github.com/jinycoo/jinygo/database/es6/esapi"
 )
 
 // TODO(karmi): Refactor into a shared mock/testing package

@@ -11,8 +11,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/errors/pb"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors/pb"
 )
 
 func TestCodeConvert(t *testing.T) {

@@ -3,7 +3,7 @@ package request
 import (
 	"net/http"
 
-	"jinycoo.com/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/auth/jwt"
 )
 
 // Extract and parse a JWT token from an HTTP request.

@@ -13,7 +13,7 @@ import (
 	"net/url"
 	"testing"
 
-	"jinycoo.com/jinygo/database/es6/estransport"
+	"github.com/jinycoo/jinygo/database/es6/estransport"
 )
 
 func BenchmarkTransportLogger(b *testing.B) {

@@ -3,7 +3,7 @@ package jwt
 import (
 	"bytes"
 	"encoding/json"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 	"strings"
 )
 

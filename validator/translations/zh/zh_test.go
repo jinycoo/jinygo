@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
-	zhongwen "jinycoo.com/jinygo/text/i18n/locales/zh"
-	ut "jinycoo.com/jinygo/text/i18n/universal-translator"
+	zhongwen "github.com/jinycoo/jinygo/text/i18n/locales/zh"
+	ut "github.com/jinycoo/jinygo/text/i18n/universal-translator"
 	. "github.com/stretchr/testify/assert"
-	"jinycoo.com/jinygo/validator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 func TestTranslations(t *testing.T) {

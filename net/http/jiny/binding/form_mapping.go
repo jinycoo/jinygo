@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/utils/cstring"
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/utils/cstring"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 var errUnknownType = errors.UnknownType

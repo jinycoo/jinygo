@@ -23,7 +23,7 @@ package log
 import (
 	"time"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // Array constructs a field with the given key and ArrayMarshaler. It provides

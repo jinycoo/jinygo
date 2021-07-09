@@ -22,7 +22,7 @@
 // packages can recreate the same functionality with buffers.NewPool.
 package bufferpool
 
-import "jinycoo.com/jinygo/log/buffer"
+import "github.com/jinycoo/jinygo/log/buffer"
 
 var (
 	_pool = buffer.NewPool()

@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/database/es6"
-	"jinycoo.com/jinygo/database/es6/esapi"
+	"github.com/jinycoo/jinygo/database/es6"
+	"github.com/jinycoo/jinygo/database/es6/esapi"
 )
 
 func TestAPI(t *testing.T) {

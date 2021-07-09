@@ -8,9 +8,9 @@
 package config
 
 import (
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/utils/file/toml"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/utils/file/toml"
 )
 
 var clt *Client

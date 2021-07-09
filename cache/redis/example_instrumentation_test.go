@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"jinycoo.com/jinygo/cache/redis"
+	"github.com/jinycoo/jinygo/cache/redis"
 )
 
 type redisHook struct{}

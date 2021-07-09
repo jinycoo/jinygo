@@ -3,7 +3,7 @@ package ut
 import (
 	"testing"
 
-	"jinycoo.com/jinygo/text/i18n/locales/en"
+	"github.com/jinycoo/jinygo/text/i18n/locales/en"
 )
 
 func BenchmarkBasicTranslation(b *testing.B) {

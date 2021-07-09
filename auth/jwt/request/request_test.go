@@ -1,7 +1,7 @@
 package request
 
 import (
-	"jinycoo.com/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/auth/jwt"
 	"net/url"
 )
 

@@ -14,7 +14,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 
-	"jinycoo.com/jinygo/errors/internal/types"
+	"github.com/jinycoo/jinygo/errors/internal/types"
 )
 
 // Error new status with code and message

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/log"
+	"github.com/jinycoo/jinygo/log"
 )
 
 func Test_logFn(t *testing.T) {

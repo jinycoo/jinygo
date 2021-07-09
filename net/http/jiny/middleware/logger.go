@@ -4,12 +4,12 @@ import (
 	"net/http"
 	"time"
 
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/http/jiny/server"
-	"jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/http/jiny/server"
+	"github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 type LogFormatterParams struct {

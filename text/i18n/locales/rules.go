@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"time"
 
-	"jinycoo.com/jinygo/text/i18n/locales/currency"
+	"github.com/jinycoo/jinygo/text/i18n/locales/currency"
 )
 
 // // ErrBadNumberValue is returned when the number passed for

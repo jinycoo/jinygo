@@ -6,8 +6,8 @@ import (
 	"os"
 	"runtime"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/errors"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

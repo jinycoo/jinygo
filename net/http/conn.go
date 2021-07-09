@@ -8,7 +8,7 @@
 package http
 
 import (
-	"jinycoo.com/jinygo/net/http/client"
+	"github.com/jinycoo/jinygo/net/http/client"
 	"io"
 	"net"
 	"sync"

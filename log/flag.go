@@ -23,7 +23,7 @@ package log
 import (
 	"flag"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // LevelFlag uses the standard library's flag.Var to declare a global flag

@@ -6,10 +6,10 @@ import (
 	"os"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 
-	"jinycoo.com/jinygo/config/dsn"
-	"jinycoo.com/jinygo/ctime"
+	"github.com/jinycoo/jinygo/config/dsn"
+	"github.com/jinycoo/jinygo/ctime"
 )
 
 var _traceDSN = "unixgram:///var/run/dapper-collect/dapper-collect.sock"

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
 )
 
 var (

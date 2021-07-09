@@ -17,8 +17,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/database/es6"
-	"jinycoo.com/jinygo/database/es6/esapi"
+	"github.com/jinycoo/jinygo/database/es6"
+	"github.com/jinycoo/jinygo/database/es6/esapi"
 )
 
 // BulkIndexer represents a parallel, asynchronous, efficient indexer for es6.

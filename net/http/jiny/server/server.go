@@ -15,9 +15,9 @@ import (
 	"path"
 	"sync"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/http/jiny/binding"
-	"jinycoo.com/jinygo/utils/cstring"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/http/jiny/binding"
+	"github.com/jinycoo/jinygo/utils/cstring"
 )
 
 const (

@@ -27,8 +27,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	richErrors "jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log/zapcore"
+	richErrors "github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 func TestErrorConstructors(t *testing.T) {

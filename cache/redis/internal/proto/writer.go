@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal/util"
+	"github.com/jinycoo/jinygo/cache/redis/internal/util"
 )
 
 type writer interface {

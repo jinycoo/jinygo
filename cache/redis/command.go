@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/hscan"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
-	"jinycoo.com/jinygo/cache/redis/internal/util"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/hscan"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/util"
 )
 
 type Cmder interface {

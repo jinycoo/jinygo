@@ -7,8 +7,8 @@ import (
 	"os"
 	"runtime"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/http/jiny/server"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/http/jiny/server"
 )
 
 const _defaultComponentName = "net/http"

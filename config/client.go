@@ -24,8 +24,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/config/env"
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/config/env"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 const (

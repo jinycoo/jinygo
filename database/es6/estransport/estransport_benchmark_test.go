@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"jinycoo.com/jinygo/database/es6/estransport"
+	"github.com/jinycoo/jinygo/database/es6/estransport"
 )
 
 var defaultResponse = http.Response{

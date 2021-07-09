@@ -12,11 +12,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/hashtag"
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
-	"jinycoo.com/jinygo/cache/redis/internal/rand"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/hashtag"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/rand"
 )
 
 var errClusterNoNodes = fmt.Errorf("redis: cluster has no nodes")

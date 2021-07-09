@@ -10,16 +10,16 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/config/dsn"
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/log"
-	nmd "jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/net/trace"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/config/dsn"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/log"
+	nmd "github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/net/trace"
+	"github.com/jinycoo/jinygo/errors"
 
 	//this package is for json format response
-	_ "jinycoo.com/jinygo/net/rpc/warden/encoding/json"
-	"jinycoo.com/jinygo/net/rpc/warden/status"
+	_ "github.com/jinycoo/jinygo/net/rpc/warden/encoding/json"
+	"github.com/jinycoo/jinygo/net/rpc/warden/status"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"

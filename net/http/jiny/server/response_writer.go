@@ -6,7 +6,7 @@ import (
 	"net"
 	"net/http"
 
-	"jinycoo.com/jinygo/log"
+	"github.com/jinycoo/jinygo/log"
 )
 
 const (

@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 var ctx = context.TODO()

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 
-	"jinycoo.com/jinygo/validator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 // NotBlank is the validation function for validating if the current field

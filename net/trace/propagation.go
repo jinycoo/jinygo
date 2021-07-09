@@ -6,7 +6,7 @@ import (
 
 	"google.golang.org/grpc/metadata"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 var (

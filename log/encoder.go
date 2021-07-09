@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"sync"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 var (

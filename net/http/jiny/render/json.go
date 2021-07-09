@@ -8,9 +8,9 @@ import (
 	"html/template"
 	"net/http"
 
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/utils/cstring"
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/utils/cstring"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 // JSON contains the given interface object.

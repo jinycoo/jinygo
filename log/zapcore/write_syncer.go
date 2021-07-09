@@ -24,7 +24,7 @@ import (
 	"io"
 	"sync"
 
-	"jinycoo.com/jinygo/log/multierr"
+	"github.com/jinycoo/jinygo/log/multierr"
 )
 
 // A WriteSyncer is an io.Writer that can also flush any buffered data. Note

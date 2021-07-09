@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
-	"jinycoo.com/jinygo/text/i18n/locales/currency"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
+	"github.com/jinycoo/jinygo/text/i18n/locales/currency"
 )
 
 type to struct {

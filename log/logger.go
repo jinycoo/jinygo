@@ -28,7 +28,7 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // A Logger provides fast, leveled, structured logging. All methods are safe

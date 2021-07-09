@@ -6,7 +6,7 @@ import (
 	"io"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
 )
 
 // KeepTTL is an option for Set command to keep key's existing TTL.

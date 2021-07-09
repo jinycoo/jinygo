@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
-	ut "jinycoo.com/jinygo/text/i18n/universal-translator"
-	"jinycoo.com/jinygo/validator"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
+	ut "github.com/jinycoo/jinygo/text/i18n/universal-translator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 // RegisterDefaultTranslations registers a set of default translations

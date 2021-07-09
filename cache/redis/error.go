@@ -6,8 +6,8 @@ import (
 	"net"
 	"strings"
 
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 // ErrClosed performs any operation on the closed client will return this error.

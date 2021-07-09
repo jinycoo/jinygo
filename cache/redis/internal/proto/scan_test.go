@@ -3,7 +3,7 @@ package proto_test
 import (
 	"encoding/json"
 
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

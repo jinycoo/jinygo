@@ -10,8 +10,8 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"jinycoo.com/jinygo/cache/redis"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 var _ = Describe("Commands", func() {

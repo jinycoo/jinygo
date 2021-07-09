@@ -25,7 +25,7 @@ import (
 	"math"
 	"time"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // Field is an alias for Field. Aliasing this type dramatically

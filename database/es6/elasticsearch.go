@@ -14,9 +14,9 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/database/es6/esapi"
-	"jinycoo.com/jinygo/database/es6/estransport"
-	"jinycoo.com/jinygo/database/es6/internal/version"
+	"github.com/jinycoo/jinygo/database/es6/esapi"
+	"github.com/jinycoo/jinygo/database/es6/estransport"
+	"github.com/jinycoo/jinygo/database/es6/internal/version"
 )
 
 const (

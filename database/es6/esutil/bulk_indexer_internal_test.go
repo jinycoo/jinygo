@@ -24,8 +24,8 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/database/es6"
-	"jinycoo.com/jinygo/database/es6/estransport"
+	"github.com/jinycoo/jinygo/database/es6"
+	"github.com/jinycoo/jinygo/database/es6/estransport"
 )
 
 var defaultRoundTripFunc = func(*http.Request) (*http.Response, error) {

@@ -15,7 +15,7 @@ import (
 	"regexp"
 	"testing"
 
-	"jinycoo.com/jinygo/database/es6/estransport"
+	"github.com/jinycoo/jinygo/database/es6/estransport"
 )
 
 func TestClientConfiguration(t *testing.T) {

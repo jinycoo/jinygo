@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/ctime"
+	"github.com/jinycoo/jinygo/ctime"
 )
 
 const (

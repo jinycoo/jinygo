@@ -15,7 +15,7 @@ import (
 	"strconv"
 	"strings"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 const nanoSecondsPerSecond = 1e9

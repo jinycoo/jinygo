@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	zhongwen "jinycoo.com/jinygo/text/i18n/locales/zh_Hant_TW"
-	ut "jinycoo.com/jinygo/text/i18n/universal-translator"
-	"jinycoo.com/jinygo/validator"
+	zhongwen "github.com/jinycoo/jinygo/text/i18n/locales/zh_Hant_TW"
+	ut "github.com/jinycoo/jinygo/text/i18n/universal-translator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 func TestTranslations(t *testing.T) {

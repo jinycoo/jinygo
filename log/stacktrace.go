@@ -24,7 +24,7 @@ import (
 	"runtime"
 	"sync"
 
-	"jinycoo.com/jinygo/log/internal/bufferpool"
+	"github.com/jinycoo/jinygo/log/internal/bufferpool"
 )
 
 var (

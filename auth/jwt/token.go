@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 // TimeFunc provides the current time when parsing token to validate "exp" claim (expiration time).

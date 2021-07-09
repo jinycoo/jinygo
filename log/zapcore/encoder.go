@@ -24,7 +24,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"jinycoo.com/jinygo/log/buffer"
+	"github.com/jinycoo/jinygo/log/buffer"
 )
 
 // DefaultLineEnding defines the default line ending when writing logs.

@@ -15,7 +15,7 @@ import (
 	stdurl "net/url"
 	"strings"
 
-	"jinycoo.com/jinygo/net/http/client"
+	"github.com/jinycoo/jinygo/net/http/client"
 )
 
 type Client struct {

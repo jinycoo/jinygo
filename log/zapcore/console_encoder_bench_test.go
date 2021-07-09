@@ -23,7 +23,7 @@ package zapcore_test
 import (
 	"testing"
 
-	. "jinycoo.com/jinygo/log/zapcore"
+	. "github.com/jinycoo/jinygo/log/zapcore"
 )
 
 func BenchmarkZapConsole(b *testing.B) {

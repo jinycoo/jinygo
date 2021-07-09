@@ -3,7 +3,7 @@ package warden
 import (
 	"context"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 
 	"google.golang.org/grpc"
 )

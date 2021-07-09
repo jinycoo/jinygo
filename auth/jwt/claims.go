@@ -1,6 +1,6 @@
 package jwt
 
-import "jinycoo.com/jinygo/errors"
+import "github.com/jinycoo/jinygo/errors"
 
 // Claims is the interface used to hold the claims values of a token
 // For a type to be a Claims object, it must have a Valid method that determines

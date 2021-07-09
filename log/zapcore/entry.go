@@ -27,10 +27,10 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/log/internal/bufferpool"
-	"jinycoo.com/jinygo/log/internal/exit"
+	"github.com/jinycoo/jinygo/log/internal/bufferpool"
+	"github.com/jinycoo/jinygo/log/internal/exit"
 
-	"jinycoo.com/jinygo/log/multierr"
+	"github.com/jinycoo/jinygo/log/multierr"
 )
 
 var (

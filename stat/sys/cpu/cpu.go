@@ -12,7 +12,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/log"
+	"github.com/jinycoo/jinygo/log"
 )
 
 var (

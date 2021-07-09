@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"jinycoo.com/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/auth/jwt"
 )
 
 var rsaPSSTestData = []struct {

@@ -110,4 +110,4 @@
 //
 // An FAQ covering everything from installation errors to design decisions is
 // available at https://github.com/uber-go/zap/blob/master/FAQ.md.
-package log // import "jinycoo.com/jinygo/log"
+package log // import "github.com/jinycoo/jinygo/log"

@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"strings"
 
-	"jinycoo.com/jinygo/validator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 var _validator *validator.Validate

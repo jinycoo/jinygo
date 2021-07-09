@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // ServeHTTP is a simple JSON endpoint that can report on or change the current

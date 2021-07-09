@@ -14,9 +14,9 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/net/http/jiny/middleware"
-	"jinycoo.com/jinygo/net/http/jiny/server"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/net/http/jiny/middleware"
+	"github.com/jinycoo/jinygo/net/http/jiny/server"
 )
 
 var (

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 
 	"github.com/stretchr/testify/assert"
 )

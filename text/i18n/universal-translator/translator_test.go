@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"testing"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
-	"jinycoo.com/jinygo/text/i18n/locales/en"
-	"jinycoo.com/jinygo/text/i18n/locales/en_CA"
-	"jinycoo.com/jinygo/text/i18n/locales/nl"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
+	"github.com/jinycoo/jinygo/text/i18n/locales/en"
+	"github.com/jinycoo/jinygo/text/i18n/locales/en_CA"
+	"github.com/jinycoo/jinygo/text/i18n/locales/nl"
 )
 
 // NOTES:

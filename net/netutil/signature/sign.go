@@ -9,7 +9,7 @@ import (
 	"encoding/base64"
 	"encoding/pem"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 // Sign 加签函数

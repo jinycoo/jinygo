@@ -25,9 +25,9 @@ import (
 	"io"
 	"io/ioutil"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 
-	"jinycoo.com/jinygo/log/multierr"
+	"github.com/jinycoo/jinygo/log/multierr"
 )
 
 // Open is a high-level wrapper that takes a variadic number of URLs, opens or

@@ -23,7 +23,7 @@ package zapcore
 import (
 	"time"
 
-	"jinycoo.com/jinygo/log/atomic"
+	"github.com/jinycoo/jinygo/log/atomic"
 )
 
 const (

@@ -15,7 +15,7 @@ import (
 	"strings"
 	"testing"
 
-	"jinycoo.com/jinygo/database/es6/esutil"
+	"github.com/jinycoo/jinygo/database/es6/esutil"
 )
 
 var _ = fmt.Print

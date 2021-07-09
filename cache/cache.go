@@ -9,7 +9,7 @@
 package cache
 
 import (
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 type Cache interface {

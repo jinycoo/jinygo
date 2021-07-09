@@ -30,8 +30,8 @@ import (
 	"strings"
 	"testing"
 
-	. "jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/log/zapcore"
+	. "github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/log/zapcore"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

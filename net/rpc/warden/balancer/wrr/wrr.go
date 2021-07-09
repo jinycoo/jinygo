@@ -8,10 +8,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/log"
-	nmd "jinycoo.com/jinygo/net/metadata"
-	wmeta "jinycoo.com/jinygo/net/rpc/warden/metadata"
-	"jinycoo.com/jinygo/stat/summary"
+	"github.com/jinycoo/jinygo/log"
+	nmd "github.com/jinycoo/jinygo/net/metadata"
+	wmeta "github.com/jinycoo/jinygo/net/rpc/warden/metadata"
+	"github.com/jinycoo/jinygo/stat/summary"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/balancer"

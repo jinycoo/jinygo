@@ -3,7 +3,7 @@ package ut
 import (
 	"strings"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
 )
 
 // UniversalTranslator holds all locale & translation data

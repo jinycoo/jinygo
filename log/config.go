@@ -25,7 +25,7 @@ import (
 	"sort"
 	"time"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // SamplingConfig sets a sampling strategy for the logger. Sampling caps the

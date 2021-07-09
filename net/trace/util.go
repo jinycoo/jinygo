@@ -6,9 +6,9 @@ import (
 	"math/rand"
 	"time"
 
-	"jinycoo.com/jinygo/config/env"
-	"jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/config/env"
+	"github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 var _hostHash byte

@@ -13,7 +13,7 @@ import (
 	"syscall"
 	"time"
 
-	"jinycoo.com/jinygo/log"
+	"github.com/jinycoo/jinygo/log"
 )
 
 func Exit(name string, close func()) {

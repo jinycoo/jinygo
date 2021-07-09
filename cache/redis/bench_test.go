@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis"
+	"github.com/jinycoo/jinygo/cache/redis"
 )
 
 func benchmarkRedisClient(ctx context.Context, poolSize int) *redis.Client {

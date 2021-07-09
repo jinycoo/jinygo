@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis"
-	"jinycoo.com/jinygo/cache/redis/internal/hashtag"
+	"github.com/jinycoo/jinygo/cache/redis"
+	"github.com/jinycoo/jinygo/cache/redis/internal/hashtag"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

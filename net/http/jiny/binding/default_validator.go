@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"sync"
 
-	"jinycoo.com/jinygo/validator"
+	"github.com/jinycoo/jinygo/validator"
 )
 
 type defaultValidator struct {

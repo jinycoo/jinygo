@@ -23,7 +23,7 @@ package atomic_test
 import (
 	"fmt"
 
-	"jinycoo.com/jinygo/log/atomic"
+	"github.com/jinycoo/jinygo/log/atomic"
 )
 
 func Example() {

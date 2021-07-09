@@ -29,7 +29,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 type username string

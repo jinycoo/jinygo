@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"net/http/httptrace"
 
-	"jinycoo.com/jinygo/net/trace"
+	"github.com/jinycoo/jinygo/net/trace"
 )
 
 const (

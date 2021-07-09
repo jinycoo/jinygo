@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis"
+	"github.com/jinycoo/jinygo/cache/redis"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

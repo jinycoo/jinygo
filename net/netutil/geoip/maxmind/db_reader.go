@@ -17,8 +17,8 @@ import (
 	"net/url"
 	"time"
 
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 type Reader interface {

@@ -3,7 +3,7 @@ package jwt_test
 import (
 	"fmt"
 	"golang.org/x/xerrors"
-	"jinycoo.com/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/auth/jwt"
 )
 
 // Example (atypical) using the StandardClaims type by itself to parse a token.

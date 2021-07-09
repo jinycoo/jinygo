@@ -15,9 +15,9 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/utils/go.uuid"
+	"github.com/jinycoo/jinygo/utils/go.uuid"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 const (

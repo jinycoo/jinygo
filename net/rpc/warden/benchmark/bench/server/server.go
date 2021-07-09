@@ -10,9 +10,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/net/rpc/warden"
-	"jinycoo.com/jinygo/net/rpc/warden/benchmark/bench/proto"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/net/rpc/warden"
+	"github.com/jinycoo/jinygo/net/rpc/warden/benchmark/bench/proto"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"google.golang.org/grpc"

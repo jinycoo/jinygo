@@ -15,14 +15,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/common/constants"
-	"jinycoo.com/jinygo/ctime"
-	_ "jinycoo.com/jinygo/database/sql/mysql"
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/netutil/breaker"
-	"jinycoo.com/jinygo/net/trace"
-	"jinycoo.com/jinygo/stat"
+	"github.com/jinycoo/jinygo/common/constants"
+	"github.com/jinycoo/jinygo/ctime"
+	_ "github.com/jinycoo/jinygo/database/sql/mysql"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/netutil/breaker"
+	"github.com/jinycoo/jinygo/net/trace"
+	"github.com/jinycoo/jinygo/stat"
 )
 
 const (

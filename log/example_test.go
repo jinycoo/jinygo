@@ -26,8 +26,8 @@ import (
 	"os"
 	"time"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 func Example_presets() {

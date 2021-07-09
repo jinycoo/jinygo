@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"strings"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 func readFile(path string) (string, error) {

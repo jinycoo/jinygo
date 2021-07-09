@@ -8,7 +8,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
 )
 
 var (

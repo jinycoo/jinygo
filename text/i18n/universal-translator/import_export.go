@@ -9,7 +9,7 @@ import (
 
 	"io"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
 )
 
 type translation struct {

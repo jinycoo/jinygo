@@ -27,8 +27,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"jinycoo.com/jinygo/log/atomic"
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/atomic"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 func TestConfig(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"jinycoo.com/jinygo/errors/en"
-	"jinycoo.com/jinygo/errors/zh"
+	"github.com/jinycoo/jinygo/errors/en"
+	"github.com/jinycoo/jinygo/errors/zh"
 )
 
 /** --------------------------------------------- *

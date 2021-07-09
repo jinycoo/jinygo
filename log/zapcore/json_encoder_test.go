@@ -26,8 +26,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 // TestJSONEncodeEntry is an more "integrated" test that makes it easier to get

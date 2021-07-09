@@ -23,7 +23,7 @@ package zapcore
 import (
 	"testing"
 
-	"jinycoo.com/jinygo/log/internal/ztest"
+	"github.com/jinycoo/jinygo/log/internal/ztest"
 )
 
 func BenchmarkMultiWriteSyncer(b *testing.B) {

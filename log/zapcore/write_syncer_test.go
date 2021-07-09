@@ -29,7 +29,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"jinycoo.com/jinygo/log/internal/ztest"
+	"github.com/jinycoo/jinygo/log/internal/ztest"
 )
 
 type writeSyncSpy struct {

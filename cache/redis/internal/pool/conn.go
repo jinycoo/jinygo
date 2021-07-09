@@ -7,8 +7,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 var noDeadline = time.Time{}

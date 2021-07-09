@@ -3,9 +3,9 @@ package middleware
 import (
 	"strconv"
 
-	"jinycoo.com/jinygo/net/http/jiny/server"
-	"jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/net/trace"
+	"github.com/jinycoo/jinygo/net/http/jiny/server"
+	"github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/net/trace"
 )
 
 func Trace() server.HandlerFn {

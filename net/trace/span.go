@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	protogen "jinycoo.com/jinygo/net/trace/proto"
+	protogen "github.com/jinycoo/jinygo/net/trace/proto"
 )
 
 const (

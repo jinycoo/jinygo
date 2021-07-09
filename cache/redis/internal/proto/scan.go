@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal/util"
+	"github.com/jinycoo/jinygo/cache/redis/internal/util"
 )
 
 // Scan parses bytes `b` to `v` with appropriate type.

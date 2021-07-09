@@ -9,10 +9,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/peer"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/stat"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/stat"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 var (

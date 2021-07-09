@@ -7,7 +7,7 @@
  **------------------------------------------------------------**/
 package stat
 
-import "jinycoo.com/jinygo/stat/prom"
+import "github.com/jinycoo/jinygo/stat/prom"
 
 // default stat struct.
 var (

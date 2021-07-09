@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 // DefaultValidationHelper is used by Claims.Valid if none is provided

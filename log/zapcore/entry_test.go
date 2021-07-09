@@ -24,7 +24,7 @@ import (
 	"sync"
 	"testing"
 
-	"jinycoo.com/jinygo/log/internal/exit"
+	"github.com/jinycoo/jinygo/log/internal/exit"
 
 	"github.com/stretchr/testify/assert"
 )

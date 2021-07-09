@@ -16,8 +16,8 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/auth/jwt"
-	"jinycoo.com/jinygo/auth/jwt/request"
+	"github.com/jinycoo/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/auth/jwt/request"
 )
 
 // location of the files used for signing and verification

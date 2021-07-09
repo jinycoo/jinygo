@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/text/i18n/locales/currency"
+	"github.com/jinycoo/jinygo/text/i18n/locales/currency"
 )
 
 func BenchmarkFmtNumber(b *testing.B) {

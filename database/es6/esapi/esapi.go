@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"jinycoo.com/jinygo/database/es6/internal/version"
+	"github.com/jinycoo/jinygo/database/es6/internal/version"
 )
 
 // Version returns the package version as a string.

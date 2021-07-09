@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"sync"
 
-	"jinycoo.com/jinygo/log/buffer"
-	"jinycoo.com/jinygo/log/internal/bufferpool"
+	"github.com/jinycoo/jinygo/log/buffer"
+	"github.com/jinycoo/jinygo/log/internal/bufferpool"
 )
 
 var _sliceEncoderPool = sync.Pool{

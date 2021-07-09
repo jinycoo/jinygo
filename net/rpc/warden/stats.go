@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"time"
 
-	nmd "jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/stat/summary"
-	"jinycoo.com/jinygo/stat/sys/cpu"
-	"jinycoo.com/jinygo/errors"
+	nmd "github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/stat/summary"
+	"github.com/jinycoo/jinygo/stat/sys/cpu"
+	"github.com/jinycoo/jinygo/errors"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"

@@ -23,7 +23,7 @@ package log
 import (
 	"sync"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 )
 
 var _errArrayElemPool = sync.Pool{New: func() interface{} {

@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"jinycoo.com/jinygo/net/http/muxie"
+	"github.com/jinycoo/jinygo/net/http/muxie"
 )
 
 func main() {

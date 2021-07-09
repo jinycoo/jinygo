@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"strings"
 
-	"jinycoo.com/jinygo/log"
+	"github.com/jinycoo/jinygo/log"
 )
 
 type ApiConfig struct {

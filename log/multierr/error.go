@@ -83,7 +83,7 @@
 // 	} else {
 // 		errors = []error{err}
 // 	}
-package multierr // import "jinycoo.com/jinygo/log/multierr"
+package multierr // import "github.com/jinycoo/jinygo/log/multierr"
 
 import (
 	"bytes"
@@ -92,7 +92,7 @@ import (
 	"strings"
 	"sync"
 
-	"jinycoo.com/jinygo/log/atomic"
+	"github.com/jinycoo/jinygo/log/atomic"
 )
 
 var (

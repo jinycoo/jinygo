@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis"
+	"github.com/jinycoo/jinygo/cache/redis"
 )
 
 var (

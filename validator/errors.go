@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	ut "jinycoo.com/jinygo/text/i18n/universal-translator"
+	ut "github.com/jinycoo/jinygo/text/i18n/universal-translator"
 )
 
 const (

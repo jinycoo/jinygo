@@ -17,10 +17,10 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"jinycoo.com/jinygo/text/i18n/locales/en"
-	"jinycoo.com/jinygo/text/i18n/locales/fr"
-	"jinycoo.com/jinygo/text/i18n/locales/nl"
-	ut "jinycoo.com/jinygo/text/i18n/universal-translator"
+	"github.com/jinycoo/jinygo/text/i18n/locales/en"
+	"github.com/jinycoo/jinygo/text/i18n/locales/fr"
+	"github.com/jinycoo/jinygo/text/i18n/locales/nl"
+	ut "github.com/jinycoo/jinygo/text/i18n/universal-translator"
 )
 
 // NOTES:
@@ -8318,7 +8318,7 @@ func TestMutipleRecursiveExtractStructCache(t *testing.T) {
 	close(proceed)
 }
 
-// Thanks @robbrockbank, see https://jinycoo.com/jinygo/text/i18n/validator/issues/249
+// Thanks @robbrockbank, see https://github.com/jinycoo/jinygo/text/i18n/validator/issues/249
 func TestPointerAndOmitEmpty(t *testing.T) {
 
 	validate := New()

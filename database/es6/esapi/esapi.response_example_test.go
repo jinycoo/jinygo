@@ -7,7 +7,7 @@ package esapi_test
 import (
 	"log"
 
-	"jinycoo.com/jinygo/database/es6"
+	"github.com/jinycoo/jinygo/database/es6"
 )
 
 func ExampleResponse_IsError() {

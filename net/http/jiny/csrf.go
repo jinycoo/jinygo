@@ -13,7 +13,7 @@ import (
 	"regexp"
 	"strings"
 
-	"jinycoo.com/jinygo/net/http/jiny/server"
+	"github.com/jinycoo/jinygo/net/http/jiny/server"
 )
 
 var validations = []func(*url.URL) bool{}

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	nmd "jinycoo.com/jinygo/net/metadata"
-	wmeta "jinycoo.com/jinygo/net/rpc/warden/metadata"
+	nmd "github.com/jinycoo/jinygo/net/metadata"
+	wmeta "github.com/jinycoo/jinygo/net/rpc/warden/metadata"
 
 	"google.golang.org/grpc/balancer"
 	"google.golang.org/grpc/resolver"

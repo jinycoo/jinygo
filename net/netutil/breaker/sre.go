@@ -13,8 +13,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/stat/summary"
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/stat/summary"
+	"github.com/jinycoo/jinygo/errors"
 )
 
 // sreBreaker is a sre CircuitBreaker pattern.

@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"jinycoo.com/jinygo/net/http/muxie"
+	"github.com/jinycoo/jinygo/net/http/muxie"
 )
 
 func main() {

@@ -18,10 +18,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/http/jiny"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/http/jiny"
 )
 
 const (

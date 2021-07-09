@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal"
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
 	"go.opentelemetry.io/otel/attribute"
 )
 

@@ -3,8 +3,8 @@ package redis
 import (
 	"context"
 
-	"jinycoo.com/jinygo/cache/redis/internal/pool"
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/pool"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
 )
 
 // TxFailedErr transaction redis failed.

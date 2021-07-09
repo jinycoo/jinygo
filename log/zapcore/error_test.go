@@ -28,9 +28,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	richErrors "jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log/multierr"
-	. "jinycoo.com/jinygo/log/zapcore"
+	richErrors "github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log/multierr"
+	. "github.com/jinycoo/jinygo/log/zapcore"
 )
 
 type errTooManyUsers int

@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"jinycoo.com/jinygo/cache/redis/internal/proto"
-	"jinycoo.com/jinygo/cache/redis/internal/util"
+	"github.com/jinycoo/jinygo/cache/redis/internal/proto"
+	"github.com/jinycoo/jinygo/cache/redis/internal/util"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/trace"
 )

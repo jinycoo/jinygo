@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"jinycoo.com/jinygo/cache/redis/internal/util"
+	"github.com/jinycoo/jinygo/cache/redis/internal/util"
 )
 
 // redis resp protocol data type.

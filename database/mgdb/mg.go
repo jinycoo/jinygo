@@ -15,8 +15,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/trace"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/trace"
 )
 
 const (

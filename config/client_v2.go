@@ -21,9 +21,9 @@ import (
 	"strings"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/utils/json"
 )
 
 const (

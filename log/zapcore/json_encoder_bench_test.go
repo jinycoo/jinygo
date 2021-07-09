@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	. "jinycoo.com/jinygo/log/zapcore"
+	. "github.com/jinycoo/jinygo/log/zapcore"
 )
 
 func BenchmarkJSONLogMarshalerFunc(b *testing.B) {

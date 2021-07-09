@@ -29,9 +29,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"jinycoo.com/jinygo/utils/file/yaml"
+	"github.com/jinycoo/jinygo/utils/file/yaml"
 
-	. "jinycoo.com/jinygo/log/zapcore"
+	. "github.com/jinycoo/jinygo/log/zapcore"
 )
 
 var (

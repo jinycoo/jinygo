@@ -3,7 +3,7 @@ package hashtag
 import (
 	"strings"
 
-	"jinycoo.com/jinygo/cache/redis/internal/rand"
+	"github.com/jinycoo/jinygo/cache/redis/internal/rand"
 )
 
 const slotNumber = 16384

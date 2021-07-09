@@ -1,6 +1,6 @@
 package validator
 
-import ut "jinycoo.com/jinygo/text/i18n/universal-translator"
+import ut "github.com/jinycoo/jinygo/text/i18n/universal-translator"
 
 // TranslationFunc is the function type used to register or override
 // custom translations

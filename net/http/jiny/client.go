@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/config/env"
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/metadata"
-	"jinycoo.com/jinygo/net/netutil/breaker"
-	"jinycoo.com/jinygo/stat"
-	"jinycoo.com/jinygo/utils/json"
+	"github.com/jinycoo/jinygo/config/env"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/metadata"
+	"github.com/jinycoo/jinygo/net/netutil/breaker"
+	"github.com/jinycoo/jinygo/stat"
+	"github.com/jinycoo/jinygo/utils/json"
 
 	"github.com/gogo/protobuf/proto"
 )

@@ -21,9 +21,9 @@ import (
 	"sync"
 	"time"
 
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/net/http/jiny/binding"
-	"jinycoo.com/jinygo/net/http/jiny/render"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/net/http/jiny/binding"
+	"github.com/jinycoo/jinygo/net/http/jiny/render"
 )
 
 const abortIndex int8 = math.MaxInt8 / 2

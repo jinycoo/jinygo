@@ -20,7 +20,7 @@
 
 package zapcore
 
-import "jinycoo.com/jinygo/log/multierr"
+import "github.com/jinycoo/jinygo/log/multierr"
 
 type hooked struct {
 	Core

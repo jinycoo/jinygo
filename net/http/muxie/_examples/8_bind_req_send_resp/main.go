@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"jinycoo.com/jinygo/net/http/muxie"
+	"github.com/jinycoo/jinygo/net/http/muxie"
 )
 
 // Read more at https://golang.org/pkg/encoding/xml

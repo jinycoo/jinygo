@@ -27,8 +27,8 @@ import (
 	"testing"
 	"time"
 
-	"jinycoo.com/jinygo/log/internal/ztest"
-	. "jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/internal/ztest"
+	. "github.com/jinycoo/jinygo/log/zapcore"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

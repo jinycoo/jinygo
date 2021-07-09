@@ -1,6 +1,6 @@
 package jiny
 
-import "jinycoo.com/jinygo/ctime"
+import "github.com/jinycoo/jinygo/ctime"
 
 type Config struct {
 	Port          string

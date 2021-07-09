@@ -3,7 +3,7 @@ package hashtag
 import (
 	"testing"
 
-	"jinycoo.com/jinygo/cache/redis/internal/rand"
+	"github.com/jinycoo/jinygo/cache/redis/internal/rand"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

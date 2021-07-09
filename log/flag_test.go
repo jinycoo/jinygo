@@ -25,7 +25,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"jinycoo.com/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/log/zapcore"
 
 	"github.com/stretchr/testify/assert"
 )

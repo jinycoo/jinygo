@@ -3,7 +3,7 @@ package pb
 import (
 	"strconv"
 
-	"jinycoo.com/jinygo/errors"
+	"github.com/jinycoo/jinygo/errors"
 
 	any "github.com/golang/protobuf/ptypes/any"
 )

@@ -10,11 +10,11 @@ package jiny
 import (
 	"time"
 
-	"jinycoo.com/jinygo/auth/jwt"
-	"jinycoo.com/jinygo/ctime"
-	"jinycoo.com/jinygo/errors"
-	"jinycoo.com/jinygo/log"
-	"jinycoo.com/jinygo/net/http/jiny/server"
+	"github.com/jinycoo/jinygo/auth/jwt"
+	"github.com/jinycoo/jinygo/ctime"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+	"github.com/jinycoo/jinygo/net/http/jiny/server"
 )
 
 const (

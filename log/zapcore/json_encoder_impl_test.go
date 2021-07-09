@@ -31,9 +31,9 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"jinycoo.com/jinygo/log/multierr"
+	"github.com/jinycoo/jinygo/log/multierr"
 
-	"jinycoo.com/jinygo/log/internal/bufferpool"
+	"github.com/jinycoo/jinygo/log/internal/bufferpool"
 )
 
 var _defaultEncoderConfig = EncoderConfig{

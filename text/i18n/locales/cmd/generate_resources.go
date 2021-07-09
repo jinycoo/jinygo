@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"jinycoo.com/jinygo/text/i18n/locales"
+	"github.com/jinycoo/jinygo/text/i18n/locales"
 
 	"golang.org/x/text/unicode/cldr"
 
