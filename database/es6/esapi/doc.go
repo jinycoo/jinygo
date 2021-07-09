@@ -59,8 +59,8 @@ See the documentation for each API function or struct at
 https://godoc.org/github.com/elastic/go-elasticsearch,
 or locally by:
 
-	go doc jinycoo.com/jinygo/database/es6/esapi Index
-	go doc jinycoo.com/jinygo/database/es6/esapi IndexRequest
+	go docgithub.com/jinycoo/jinygo/database/es6/esapi Index
+	go docgithub.com/jinycoo/jinygo/database/es6/esapi IndexRequest
 
 Response
 

@@ -1,4 +1,4 @@
-module jinycoo.com/jinygo
+module github.com/jinycoo/jinygo
 
 go 1.16
 

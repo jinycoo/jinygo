@@ -31,7 +31,7 @@ import (
 // If the error implements fmt.Formatter, a field with the name ${key}Verbose
 // is also added with the full verbose error message.
 //
-// Finally, if the error implements errorGroup (from jinycoo.com/jinygo/log/multierr) or
+// Finally, if the error implements errorGroup (fromgithub.com/jinycoo/jinygo/log/multierr) or
 // causer, a ${key}Causes field is added with an
 // array of objects containing the errors this error was comprised of.
 //
