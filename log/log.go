@@ -10,14 +10,12 @@ package log
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 	"runtime"
 	"strings"
 	"time"
 
-	"github.com/jinycoo/jinygo/utils/go.uuid"
-
 	"github.com/jinycoo/jinygo/log/zapcore"
+	"github.com/jinycoo/jinygo/utils/go.uuid"
 )
 
 const (
@@ -35,7 +33,7 @@ const (
 
 var (
 	Coo           *CooLogger
-	cooConf       *CooLogConfig
+	cooConf       *CLogConfig
 	encoderConfig zapcore.EncoderConfig
 )
 
@@ -50,8 +48,9 @@ type CooLogger struct {
 	appName     string
 }
 
-type CooLogConfig struct {
+type CLogConfig struct {
 	Dev     bool              `json:"dev" yaml:"dev"`
+	File    string            `json:"file"`
 	Level   string            `json:"level" yaml:"level"`
 	Encoder []string          `json:"encoder" yaml:"encoder"`
 	Encode  map[string]string `json:"encode" yaml:"encode"`
@@ -59,8 +58,8 @@ type CooLogConfig struct {
 	OutPuts []string          `json:"outputs" yaml:"outputs"`
 }
 
-func defaultLogConfig() {
-	cooConf = &CooLogConfig{
+func init() {
+	cooConf = &CLogConfig{
 		Dev:     true,
 		Level:   DEBUG,
 		Encoder: []string{CONSOLE},
@@ -73,11 +72,11 @@ func defaultLogConfig() {
 			"message":    "msg",
 			"stacktrace": "stacktrace",
 		},
-		OutPuts: []string{"stderr", DEFAULT},
+		OutPuts: []string{"stderr"},
 	}
 }
 
-func (clog *CooLogConfig) lvlEncoder() {
+func (clog *CLogConfig) lvlEncoder() {
 	lvl := clog.Encode["level"]
 	switch lvl {
 	case "capital":
@@ -91,9 +90,9 @@ func (clog *CooLogConfig) lvlEncoder() {
 	}
 }
 
-func (clog *CooLogConfig) timeEncoder() {
-	time := clog.Encode["time"]
-	switch time {
+func (clog *CLogConfig) timeEncoder() {
+	ts := clog.Encode["time"]
+	switch ts {
 	case "local":
 		encoderConfig.EncodeTime = logEncodeTime
 	case "iso8601", "ISO8601":
@@ -107,7 +106,7 @@ func (clog *CooLogConfig) timeEncoder() {
 	}
 }
 
-func (clog *CooLogConfig) durEncoder() {
+func (clog *CLogConfig) durEncoder() {
 	dur := clog.Encode["duration"]
 	switch dur {
 	case "string":
@@ -119,7 +118,7 @@ func (clog *CooLogConfig) durEncoder() {
 	}
 }
 
-func (clog *CooLogConfig) callerEncoder() {
+func (clog *CLogConfig) callerEncoder() {
 	caller := clog.Encode["caller"]
 	switch caller {
 	case "full":
@@ -163,10 +162,10 @@ func NewLogger(app string) *CooLogger {
 			outputs = append(outputs, logfile)
 		} else {
 			if strings.HasPrefix(p, "./") {
-				dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
-				root := strings.Replace(dir, "\\", "/", -1)
-				cpath := filepath.Join(root, strings.Replace(p, "./", "", 1))
-				outputs = append(outputs, cpath)
+				//dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
+				//root := strings.Replace(dir, "\\", "/", -1)
+				//cpath := filepath.Join(root, strings.Replace(p, "./", "", 1))
+				outputs = append(outputs, "E:\\apps\\go.360.cn\\quake.360.cn\\app\\service\\quake-search\\bin\\access.log")
 			} else {
 				outputs = append(outputs, p)
 			}
@@ -202,24 +201,22 @@ func NewLogger(app string) *CooLogger {
 	return log
 }
 
-func Init(appName, mode, filew string) {
-	if mode == "dev" {
-		defaultLogConfig()
-	} else {
-		cooConf = &CooLogConfig{
-			Level:   INFO,
-			Dev: false,
-			Encoder: []string{JSON},
-			Encode:  map[string]string{"time": "iso8601", "level": "lowercase", "duration": "string", "caller": "short"},
-			Key: map[string]string{
-				"name":       "logger",
-				"time":       "time",
-				"level":      "level",
-				"caller":     "caller",
-				"message":    "msg",
-				"stacktrace": "stacktrace",
-			},
-			OutPuts: []string{"stderr", filew},
+func Init(appName, mode string, cfg *CLogConfig) {
+	if cfg != nil {
+		cooConf.Level = cfg.Level
+		cooConf.Dev = strings.ToLower(mode) == "dev"
+		cooConf.Encoder = []string {JSON}
+		cooConf.Encode = map[string]string {"time": "iso8601", "level": "lowercase", "duration": "string", "caller": "short"}
+		cooConf.Key = map[string]string {
+			"name":       "logger",
+			"time":       "time",
+			"level":      "level",
+			"caller":     "caller",
+			"message":    "msg",
+			"stacktrace": "stacktrace",
+		}
+		if len(cfg.File) > 0 {
+			cooConf.OutPuts = append(cooConf.OutPuts, cfg.File)
 		}
 	}
 	Coo = NewLogger(appName)
