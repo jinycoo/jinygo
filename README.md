@@ -16,11 +16,9 @@ a golang micro web framework
 
 > grpc
 
-> tools 工具部分 - 生成项目脚手架
-
 ```shell script
 
-go get github.com/jinycoo/jinygo/tools/jiny
+go get github.com/jinycoo/jiny
 
 jiny new project_name -o auther -m module -p project_path
 
