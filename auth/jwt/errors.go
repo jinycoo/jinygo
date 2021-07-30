@@ -11,30 +11,6 @@ var (
 	ErrHashUnavailable = errors.New("the requested hash function is unavailable")
 )
 
-// The errors that might occur when parsing and validating a token
-const (
-	ValidationErrorMalformed        uint32 = 1 << iota // Token is malformed
-	ValidationErrorUnverifiable                        // Token could not be verified because of signing problems
-	ValidationErrorSignatureInvalid                    // Signature validation failed
-
-	// Standard Claim validation errors
-	ValidationErrorAudience      // AUD validation failed
-	ValidationErrorExpired       // EXP validation failed
-	ValidationErrorIssuedAt      // IAT validation failed
-	ValidationErrorIssuer        // ISS validation failed
-	ValidationErrorNotValidYet   // NBF validation failed
-	ValidationErrorId            // JTI validation failed
-	ValidationErrorClaimsInvalid // Generic claims validation error
-)
-
-// Helper for constructing a ValidationError with a string error message
-func NewValidationError(errorText string, errorFlags uint32) *ValidationError {
-	return &ValidationError{
-		text:   errorText,
-		Errors: errorFlags,
-	}
-}
-
 // The error from Parse if token is not valid
 type ValidationError struct {
 	Inner  error  // stores the error returned by external dependencies, i.e.: KeyFunc
@@ -53,7 +29,3 @@ func (e ValidationError) Error() string {
 	}
 }
 
-// No errors
-func (e *ValidationError) valid() bool {
-	return e.Errors == 0
-}

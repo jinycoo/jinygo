@@ -2,7 +2,10 @@ package jwt
 
 import (
 	"encoding/json"
-	"errors"
+
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+
 	// "fmt"
 )
 
@@ -82,27 +85,22 @@ func (m MapClaims) VerifyNotBefore(cmp int64, req bool) bool {
 // As well, if any of the above claims are not in the token, it will still
 // be considered a valid claim.
 func (m MapClaims) Valid() error {
-	vErr := new(ValidationError)
 	now := TimeFunc().Unix()
 
 	if !m.VerifyExpiresAt(now, false) {
-		vErr.Inner = errors.New("Token is expired")
-		vErr.Errors |= ValidationErrorExpired
+		log.ZError("Token is expired")
+		return errors.TokenExpired
 	}
 
 	if !m.VerifyIssuedAt(now, false) {
-		vErr.Inner = errors.New("Token used before issued")
-		vErr.Errors |= ValidationErrorIssuedAt
+		log.ZError("Token used before issued")
+		return errors.TokenInvalid
 	}
 
 	if !m.VerifyNotBefore(now, false) {
-		vErr.Inner = errors.New("Token is not valid yet")
-		vErr.Errors |= ValidationErrorNotValidYet
+		log.ZError("Token is not valid yet")
+		return errors.TokenNotValidYet
 	}
 
-	if vErr.valid() {
-		return nil
-	}
-
-	return vErr
+	return nil
 }

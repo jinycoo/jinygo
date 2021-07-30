@@ -2,6 +2,7 @@ package jwt_test
 
 import (
 	"fmt"
+	"github.com/jinycoo/jinygo/errors"
 	"time"
 
 	"github.com/jinycoo/jinygo/auth/jwt"
@@ -98,18 +99,15 @@ func ExampleParse_errorChecking() {
 
 	if token.Valid {
 		fmt.Println("You look nice today")
-	} else if ve, ok := err.(*jwt.ValidationError); ok {
-		if ve.Errors&jwt.ValidationErrorMalformed != 0 {
+	} else {
+		switch err {
+		case errors.TokenMalformed:
 			fmt.Println("That's not even a token")
-		} else if ve.Errors&(jwt.ValidationErrorExpired|jwt.ValidationErrorNotValidYet) != 0 {
-			// Token is either expired or not active yet
+		case errors.TokenNotValidYet, errors.TokenExpired:
 			fmt.Println("Timing is everything")
-		} else {
+		default:
 			fmt.Println("Couldn't handle this token:", err)
 		}
-	} else {
-		fmt.Println("Couldn't handle this token:", err)
 	}
-
 	// Output: Timing is everything
 }

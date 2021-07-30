@@ -72,7 +72,7 @@ func AccessToken(acc *AccInfo, redura *ctime.Duration) (string, error) {
 		MID:      acc.MID,
 		Username: acc.Username,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: jwt.At(acc.LoginAt.Add(exp)),
+			ExpiresAt: acc.LoginAt.Add(exp).Unix(),
 			Issuer:    acc.Issuer,
 		},
 	}
@@ -106,7 +106,7 @@ func (j *JWT) Refresh(tokenStr string) (string, error) {
 		return "", err
 	}
 	if claims, ok := token.Claims.(*Claims); ok && token.Valid {
-		claims.StandardClaims.ExpiresAt = jwt.At(time.Now().Add(time.Duration(conf.Expiry)))
+		claims.StandardClaims.ExpiresAt = time.Now().Add(time.Duration(conf.Expiry)).Unix()
 		return j.Gen(*claims)
 	}
 	return "", errors.TokenInvalid
@@ -116,7 +116,7 @@ func JwtAuth() server.HandlerFn {
 	return func(c *server.Context) {
 		claims, err := NewJWT().Parse(c)
 		if err != nil {
-			c.JSON(nil, errors.AuthTokenErr)
+			c.JSON(nil, errors.TokenMalformed)
 			c.Abort()
 			return
 		}

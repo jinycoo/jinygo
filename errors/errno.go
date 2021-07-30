@@ -30,6 +30,11 @@ var (
 	AuthTokenInvalid          = add(-23) // Token无效 - Token invalid
 	AuthTokenSignatureInvalid = add(-24) // Token签名无效 - Token Signature invalid
 
+	InvalidKey = add(-3000) //   无效Key key is invalid
+	InvalidKeyType = add(-3001) // 无效Key类型 key is of invalid type
+	HashUnavailable = add(-3002) // 请求的哈希函数不可用 - the requested hash function is unavailable
+
+
 	AuthJwtSegmentsNumInvalid = add(-31) // Token 包含多个无效片段 - token contains an invalid number of segments
 	AuthJwtBearerErr          = add(-32) // Token中没有包含Bearer - token string should not contain 'bearer '
 	AuthJwtHeaderInvalid      = add(-33) // 无效的Token令牌头 failed to decode token header
@@ -73,11 +78,14 @@ var (
 	Deadline           = add(-504) // 服务调用超时
 	LimitExceed        = add(-509) // 超出限制
 
-	TokenMalformed   = add(-600) // Token错误
-	TokenNotValidYet = add(-601) // Token尚未激活
-	TokenExpired   = add(-602) // Token已过期
-	TokenInvalid   = add(-603) // 无效Token
-	TicketInvalid  = add(-604) // 无效凭证
+	TokenMalformed   = add(-600) // Token错误 令牌格式错误 Token is malformed
+	TokenSigningErr      = add(-601) // 由于签名问题无法验证令牌 - Token could not be verified because of signing problems
+	TokenSignatureInvalid = add(-602) // 签名验证失败 Signature validation failed
+	TokenExpired   = add(-603) // Token已过期
+	TokenInvalid   = add(-604) // 无效Token
+	TokenNotValidYet = add(-605) // Token尚未激活
+
+	TicketInvalid  = add(-610) // 无效凭证
 	TicketExpired  = add(-605) // 凭证已过期
 	TicketConsumed = add(-606) // 凭证已使用
 

@@ -1,19 +1,21 @@
 package jwt
 
+import (
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
+)
+
 // Implements the none signing method.  This is required by the spec
 // but you probably should never use it.
 var SigningMethodNone *signingMethodNone
 
 const UnsafeAllowNoneSignatureType unsafeNoneMagicConstant = "none signing method allowed"
 
-var NoneSignatureTypeDisallowedError error
-
 type signingMethodNone struct{}
 type unsafeNoneMagicConstant string
 
 func init() {
 	SigningMethodNone = &signingMethodNone{}
-	NoneSignatureTypeDisallowedError = NewValidationError("'none' signature type is not allowed", ValidationErrorSignatureInvalid)
 
 	RegisterSigningMethod(SigningMethodNone.Alg(), func() SigningMethod {
 		return SigningMethodNone
@@ -29,14 +31,13 @@ func (m *signingMethodNone) Verify(signingString, signature string, key interfac
 	// Key must be UnsafeAllowNoneSignatureType to prevent accidentally
 	// accepting 'none' signing method
 	if _, ok := key.(unsafeNoneMagicConstant); !ok {
-		return NoneSignatureTypeDisallowedError
+		log.ZError("Signature validation failed - 'none' signature type is not allowed")
+		return errors.TokenSignatureInvalid
 	}
 	// If signing method is none, signature must be an empty string
 	if signature != "" {
-		return NewValidationError(
-			"'none' signing method with non-empty signature",
-			ValidationErrorSignatureInvalid,
-		)
+		log.ZError("Signature validation failed - 'none' signing method with non-empty signature")
+		return errors.TokenSignatureInvalid
 	}
 
 	// Accept 'none' signing method.
@@ -48,5 +49,6 @@ func (m *signingMethodNone) Sign(signingString string, key interface{}) (string,
 	if _, ok := key.(unsafeNoneMagicConstant); ok {
 		return "", nil
 	}
-	return "", NoneSignatureTypeDisallowedError
+	log.ZError("Signature validation failed - 'none' signature type is not allowed")
+	return "", errors.TokenSignatureInvalid
 }

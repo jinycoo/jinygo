@@ -2,7 +2,8 @@ package jwt
 
 import (
 	"crypto/subtle"
-	"fmt"
+	"github.com/jinycoo/jinygo/errors"
+	"github.com/jinycoo/jinygo/log"
 	"time"
 )
 
@@ -30,32 +31,26 @@ type StandardClaims struct {
 // As well, if any of the above claims are not in the token, it will still
 // be considered a valid claim.
 func (c StandardClaims) Valid() error {
-	vErr := new(ValidationError)
 	now := TimeFunc().Unix()
 
 	// The claims below are optional, by default, so if they are set to the
 	// default value in Go, let's not fail the verification for them.
 	if !c.VerifyExpiresAt(now, false) {
 		delta := time.Unix(now, 0).Sub(time.Unix(c.ExpiresAt, 0))
-		vErr.Inner = fmt.Errorf("token is expired by %v", delta)
-		vErr.Errors |= ValidationErrorExpired
+		log.Errorf("token is expired by %v", delta)
+		return errors.TokenExpired
 	}
 
 	if !c.VerifyIssuedAt(now, false) {
-		vErr.Inner = fmt.Errorf("Token used before issued")
-		vErr.Errors |= ValidationErrorIssuedAt
+		log.ZError("Token used before issued")
+		return errors.TokenInvalid
 	}
 
 	if !c.VerifyNotBefore(now, false) {
-		vErr.Inner = fmt.Errorf("token is not valid yet")
-		vErr.Errors |= ValidationErrorNotValidYet
+		log.ZError("token is not valid yet")
+		return errors.TokenNotValidYet
 	}
-
-	if vErr.valid() {
-		return nil
-	}
-
-	return vErr
+	return nil
 }
 
 // Compares the aud claim against cmp.
